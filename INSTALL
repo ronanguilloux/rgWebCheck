@@ -2,7 +2,8 @@
 Install & Test, the PHP-CLI way :
 ---------------------------------
 
-svn export http://92.243.31.245/svn/rgWebChecker/trunk rgWebChecker
+# Fork rgWebChecker from GIT : https://github.com/ronanguilloux/rgWebCheck.git
+# then...  
 mkdir rgWebChecker/build
 mkdir rgWebChecker/build/logs
 mkdir rgWebChecker/build/coverage
@@ -15,11 +16,11 @@ Generate the phpdoc :
 ---------------------
 
 cd doc
+mkdir output
 ./generate.sh (take a while... have a coffee...)
 
-
-Add a custom benchmark
-----------------------
+Add a custom benchmark :
+------------------------
 
 add one autoload key=>value in /rgWebChecker/src/checker/autoload/autoload.php for your tests class
 add one autoload key=>value in /rgWebChecker/src/checker/autoload/autoload.php for your class
@@ -41,3 +42,10 @@ class checkerBenchmarkMyTest extends checkerBenchmark implements iBenchmarkable
 }
 
 Happy forking/hacking/pulling
+
+PS : GIT Memo
+-------------
+git add --all
+git commit -m 'Sensible changelog message'
+git push origin master
+See also : git log

@@ -3,3 +3,4 @@
 * create a runcronjob.php to be launched via the crontab, processing the tests & sending an email to a per-URI receivers list
 * create a web version, that could be based on the Apache Zeta Components MvcTools
   see http://incubator.apache.org/zetacomponents/documentation/trunk/MvcTools/tutorial.html
+* offer the contributors a beer, they deserved it.

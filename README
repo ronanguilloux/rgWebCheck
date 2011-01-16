@@ -4,4 +4,11 @@ written in PHP5, based on Zeta Components
 allows you to add your own tests & benchmarks extending the exsisting tests. 
 GNU Affero GPL'd.
 
-Fell free to fork it on github : https://github.com/ronanguilloux/rgWebCheck
+Feel free to fork it on github : https://github.com/ronanguilloux/rgWebCheck
+
+Licence compatibility : 
+The Apache Zeta Components are now under Apache License, Version 2.0.
+The Apache Software Foundation and the Free Software Foundation (FSF) 
+agree that the Apache License 2.0 is a free software licence, 
+compatible with version 3 of the GNU General Public License (GPL).
+You can read more about that at http://www.gnu.org/licenses/license-list.html#apache2
