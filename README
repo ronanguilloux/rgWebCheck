@@ -1,0 +1,7 @@
+Website checker,
+
+written in PHP5, based on Zeta Components
+allows you to add your own tests & benchmarks extending the exsisting tests. 
+GNU Affero GPL'd.
+
+Fell free to fork it on github : https://github.com/ronanguilloux/rgWebCheck
