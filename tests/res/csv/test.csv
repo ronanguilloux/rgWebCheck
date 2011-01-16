@@ -1,0 +1,3 @@
+Complete_HttpUrl,Benchmark_ToBeRun,Expected_Value,Comment
+http://terrabotanica.fr/robots.txt,uri,,Vérifie l'existence
+http://terrabotanica.fr/robots.txt,uri,Disallow:,Vérifie le contenu

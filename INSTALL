@@ -1,0 +1,43 @@
+
+Install & Test, the PHP-CLI way :
+---------------------------------
+
+svn export http://92.243.31.245/svn/rgWebChecker/trunk rgWebChecker
+mkdir rgWebChecker/build
+mkdir rgWebChecker/build/logs
+mkdir rgWebChecker/build/coverage
+chmod 755 rgWebChecker -R
+cd rgWebChecker/
+clear && phpunit --verbose --colors --bootstrap ./tests/bootstrap.php  --log-junit build/logs/phpunit.xml --coverage-clover build/logs/coverage/clover.xml --coverage-html build/logs/coverage/ --group=WebCheckerTests tests/alltests.php
+(chmod 775 rgWebChecker/build/coverage -R & re-launch phpunit test if needed)
+
+Generate the phpdoc :
+---------------------
+
+cd doc
+./generate.sh (take a while... have a coffee...)
+
+
+Add a custom benchmark
+----------------------
+
+add one autoload key=>value in /rgWebChecker/src/checker/autoload/autoload.php for your tests class
+add one autoload key=>value in /rgWebChecker/src/checker/autoload/autoload.php for your class
+add a php file in /rgWebChecker/src/checker/classes/benchmark/. 
+add a PHPUnit test file in /rgWebChecker/src/checker/tests/
+
+Be aware that your new benchmark class
+
+* must implement iBenchmarkable
+* must inherit from checkerBenchmark
+* please make your class Name Zeta Component Guidelines compliant (not mandatory but appreciated for any github.com's pull request)
+	see http://incubator.apache.org/zetacomponents/community/implementation.html#naming-conventions 
+
+Ex : Your MyTest benchmark class declaration must be :
+
+class checkerBenchmarkMyTest extends checkerBenchmark implements iBenchmarkable
+{
+	//...
+}
+
+Happy forking/hacking/pulling
