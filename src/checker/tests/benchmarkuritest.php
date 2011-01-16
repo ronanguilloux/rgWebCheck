@@ -125,34 +125,12 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException ezcUrlException
-     * @group WebCheckerTests
-     */
-    public function testSetRunException_1()
-    {
-        $options = $this->fillRunOptions_4();
-        $this->object->setUp($options);
-        $result = $this->object->run();
-    }
-
-    /**
-     * @expectedException ezcUrlException
-     * @group WebCheckerTests
-     */
-    public function testSetRunException_2()
-    {
-        $options = $this->fillRunOptions_5();
-        $this->object->setUp($options);
-        $result = $this->object->run();
-    }
-
-    /**
      * @group WebCheckerTests
      * @codeCoverageIgnore
      */
-    public function testRun()
+    public function testRun_1()
     {
-        $options = $this->fillRunOptions_3();
+        $options = $this->fillRunOptions_1();
         $this->object->setUp($options);
         $result = $this->object->run();
         //var_export($result);
@@ -199,6 +177,28 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * @expectedException ezcUrlException
+     * @group WebCheckerTests
+     */
+    public function testSetRunException_2()
+    {
+        $options = $this->fillRunOptions_2();
+        $this->object->setUp($options);
+        $result = $this->object->run();
+    }
+
+    /**
+     * @expectedException ezcUrlException
+     * @group WebCheckerTests
+     */
+    public function testSetRunException_3()
+    {
+        $options = $this->fillRunOptions_3();
+        $this->object->setUp($options);
+        $result = $this->object->run();
+    }
+
     protected function fillRunOptions_1()
     {
         return array(
@@ -216,33 +216,6 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
     protected function fillRunOptions_2()
     {
         return array(
-        	'scheme' => 'http',
-        	'host' => 'terrabotanica.fr',        	
-        	'basedir' => array(),
-            'path' => array('', 'robots.txt'),
-        	'query' => '',
-        	'check' => true,
-        	'expectedStrings' => array( 'Disallow:' ),
-        	'notExpectedStrings' => array('Disallow: /', 'Disallow: /'),
-        );
-    }
-
-    protected function fillRunOptions_3()
-    {
-        return array(
-        	'scheme' => 'http',
-        	'host' => 'www.ronan.sautron.ez.mediacd.fr',        	
-        	'basedir' => array(),
-            'path' => array('FAQ'),
-        	'query' => '',
-        	'check' => true,
-        	'password'=> 'nogoogle:nogoogle'
-        	);
-    }
-
-    protected function fillRunOptions_4()
-    {
-        return array(
         	'scheme' => 'htp',
         	'host' => 'foo:bar',        	
         	'basedir' => array(),
@@ -251,8 +224,8 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
         	'check' => true,
         );
     }
-    
-    protected function fillRunOptions_5()
+
+    protected function fillRunOptions_3()
     {
         return array(
         	'scheme' => null,
@@ -263,10 +236,6 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
         	'check' => true,
         );
     }
-
-
-
-
 
 }
 ?>

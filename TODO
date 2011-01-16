@@ -1,21 +1,5 @@
-* Pour chaque methode utilisant les API d'une extension tierce, 
-faire un check de l'existence des classes et des methodes utilisées,
-dans une fonction checkTierce(nomCLasse,NomMethode) qui renvoie true/false.
-
-* Check existence de forcevirtual si hostmatchmap dans site.ini
-
-* Appel de rgCheck sur un siteaccess en particulier ou sur une collection de siteaccess, 
-non sur une instance entière
-
-* Ajout du custom check, par exemple Vérifier que ".preprod.mediacd.fr" et que "ez.mediacd.fr" ne renvoie rien sur google
-en utilisant le site.ini et wget sur les résultats de google
-
-* check no index.php dans les url des pages enfants de l'accueil
-
-* check no "kernel" dans la balise title
-
-* Faire un seul wget récursif sur les pages du site pour faire ces tests
-
-* analyser SHOW TABLE STATUS (nb de sessions, etc.)
-
-* faire une version web basée sur MVCTools avec 1 input URL et n check boxes pour quoi checker
+* create a "bunch-of-tests-list by URI" handler, accepting various kind of source : csv file, etc. Each URI should have its own bunch of tests.
+* create a list of the available bunch of tests
+* create a runcronjob.php to be launched via the crontab, processing the tests & sending an email to a per-URI receivers list
+* create a web version, that could be based on the Apache Zeta Components MvcTools
+  see http://incubator.apache.org/zetacomponents/documentation/trunk/MvcTools/tutorial.html
