@@ -17,9 +17,8 @@ require_once 'src/zetacomponents/Base/base.php';
 spl_autoload_register( array( 'ezcBase', 'autoload' ) );
 
 // Zeta components autoloading for the all rest :
-$options = new ezcBaseAutoloadOptions( array( 'debug' => true, 'preload' => false ) );
+$options = new ezcBaseAutoloadOptions( array( 'debug' => false, 'preload' => true ) );
 ezcBase::setOptions( $options );
-//ezcBase::addClassRepository( dirname( __FILE__ ) . '/src/ezc', null, 'ezc' );
 ezcBase::addClassRepository( dirname( __FILE__ ) . '/src/checker', null, 'checker' );
 // here you can add your own libs using addClassRepository()
 
