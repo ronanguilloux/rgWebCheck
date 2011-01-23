@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>src/zetacomponents/Base/exceptions</title>
+    <title>src/checker/extensions</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <!--[if IE]><script src="excanvas.compressed.js"></script><![endif]-->
     <script src="RGraph.common.core.js" ></script>
@@ -13,8 +13,8 @@
 
   <body>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr><td class="title">src/zetacomponents/Base/exceptions</td></tr>
-      <tr><td><div align="center"><p><a href="src_zetacomponents_Base_exceptions.html">Back to Code Coverage report</a></p></div></td></tr>
+      <tr><td class="title">src/checker/extensions</td></tr>
+      <tr><td><div align="center"><p><a href="src_checker_extensions.html">Back to Code Coverage report</a></p></div></td></tr>
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
     </table>
 
@@ -27,7 +27,7 @@
             <h2>Class Coverage Distribution</h2>
             <canvas id="classCoverageDistribution" width="475" height="200"></canvas>
             <script>
-            var ccd = new RGraph.Bar('classCoverageDistribution', [0,0,0,0,0,0,0,0,0,1,0,2]);
+            var ccd = new RGraph.Bar('classCoverageDistribution', [0,0,0,0,0,0,0,0,0,0,0,2]);
             ccd.Set('chart.background.barcolor1', 'white');
             ccd.Set('chart.background.barcolor2', 'white');
             ccd.Set('chart.colors', ['blue']);
@@ -44,7 +44,7 @@
             <h2>Class Complexity</h2>
             <canvas id="classComplexity" width="475" height="200"></canvas>
             <script>
-            var cc = new RGraph.Scatter('classComplexity', [[87.5,2,"blue","ezcBaseException"],[100,1,"blue","ezcBasePropertyNotFoundException"],[100,2,"blue","ezcBaseValueException"]]);
+            var cc = new RGraph.Scatter('classComplexity', [[100,10,"blue","checkerBenchmarkDemo"],[100,40,"blue","checkerBenchmarkUri"]]);
             cc.Set('chart.xmax', 100);
             cc.Set('chart.background.barcolor1', 'white');
             cc.Set('chart.background.barcolor2', 'white');
@@ -60,7 +60,6 @@
           <td valign="top">
             <h2>Top Project Risks</h2>
             <ul>
-              <li><a href="src_zetacomponents_Base_exceptions_exception.php.html#33">ezcBaseException</a> (2)</li>
 
             </ul>
           </td>
@@ -68,7 +67,6 @@
           <td valign="top">
             <h2>Least Tested Methods</h2>
             <ul>
-              <li><a href="src_zetacomponents_Base_exceptions_exception.php.html#45">ezcBaseException::__construct</a> (85%)</li>
 
             </ul>
           </td>

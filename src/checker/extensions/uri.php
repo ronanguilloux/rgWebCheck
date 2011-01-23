@@ -17,7 +17,7 @@
  * @package WebChecker
  * @version //autogen//
  */
-class checkerBenchmarkUri extends checkerBenchmark implements iBenchmarkable
+class checkerBenchmarkUri implements iBenchmarkable
 {
 
     /**
