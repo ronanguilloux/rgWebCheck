@@ -17,6 +17,7 @@
  *
  * @package WebCheckerTests
  * @version //autogen//
+ * @codeCoverageIgnore
  */
 class checkerAllTests
 {

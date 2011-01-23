@@ -66,30 +66,44 @@ class checkerBenchmarkUri extends checkerBenchmark implements iBenchmarkable
             case 'options':
                 if ( !is_array( $propertyValue ) )
                 {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a benchmarkSuite object, __set() impossible in ' . __CLASS__  );
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not an array, __set() impossible in ' . __CLASS__  );
                 }
                 $this->properties['options'] = $propertyValue;
                 break;
             case 'url':
                 if ( !is_string( $propertyValue ) )
                 {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a logger object, __set() impossible in ' . __CLASS__  );
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a string, __set() impossible in ' . __CLASS__  );
                 }
                 $this->properties['url'] = $propertyValue;
                 break;
             case 'password':
                 if ( !is_string( $propertyValue ) )
                 {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a logger object, __set() impossible in ' . __CLASS__  );
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a string, __set() impossible in ' . __CLASS__  );
                 }
                 $this->properties['password'] = $propertyValue;
                 break;
-            case 'check':
+            case 'validateUrl':
                 if ( !is_bool( $propertyValue ) )
                 {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a logger object, __set() impossible in ' . __CLASS__  );
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a boolean value, __set() impossible in ' . __CLASS__  );
                 }
-                $this->properties['check'] = $propertyValue;
+                $this->properties['validateUrl'] = $propertyValue;
+                break;
+            case 'expectedStrings':
+                if ( !is_array( $propertyValue ) )
+                {
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not an array, __set() impossible in ' . __CLASS__  );
+                }
+                $this->properties['validateUrl'] = $propertyValue;
+                break;
+            case 'notExpectedStrings':
+                if ( !is_array( $propertyValue ) )
+                {
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not an array, __set() impossible in ' . __CLASS__  );
+                }
+                $this->properties['notExpectedStrings'] = $propertyValue;
                 break;
             default:
                 throw new ezcBasePropertyNotFoundException( $propertyName . ' property is unknown, __setting impossible in ' . __CLASS__ );
@@ -124,14 +138,17 @@ class checkerBenchmarkUri extends checkerBenchmark implements iBenchmarkable
      * @param string $logger
      * @see http://www.php.net/manual/fr/function.http-build-url.php
      */
-    public function setUp($options = array(
+    public function setUp( $options = array(
     	'scheme' => 'http',
     	'host' => null, 
     	'basedir' => null,
     	'path' => null,
     	'script' => null,  
     	'query' => null,
-        'password' => null,
+        'validateUrl' => null,
+    	'password' => null,
+    	'expectedStrings' => null,
+    	'notExpectedStrings' => null,
     ) )
     {
         $urlBuilder = new ezcUrl();
@@ -153,13 +170,21 @@ class checkerBenchmarkUri extends checkerBenchmark implements iBenchmarkable
         {
             $urlBuilder->query = $options['query'];
         }
-        if( isset( $options['check'] ) )
+        if( isset( $options['validateUrl'] ) )
         {
-            $this->check = $options['check'];
+            $this->validateUrl = $options['validateUrl'];
         }
         if( isset( $options['password'] ) && trim($options['password']) !== '' )
         {
             $this->password = $options['password'];
+        }
+        if( isset( $options['expectedStrings'] ) )
+        {
+            $this->expectedStrings = $options['expectedStrings'];
+        }
+        if( isset( $options['notExpectedStrings'] ) )
+        {
+            $this->notExpectedStrings = $options['notExpectedStrings'];
         }
         return $this->url = $urlBuilder->buildUrl( false );
     }
@@ -175,7 +200,7 @@ class checkerBenchmarkUri extends checkerBenchmark implements iBenchmarkable
         {
             $this->setUp();
         }
-        if( isset( $this->check )  && $this->check )
+        if( isset( $this->validateUrl )  && $this->validateUrl )
         {
             // TODO : url checking to be improved and documented
             // see http://us4.php.net/manual/en/function.get-headers.php
@@ -232,9 +257,8 @@ class checkerBenchmarkUri extends checkerBenchmark implements iBenchmarkable
      */
     public function checkUrl($acceptablesHttpCodes = null, $tmpDir = '/tmp', $fetchBodyContent = true) {
         $result = array();
-        if(
-        !filter_var( $this->url, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED )
-        || !filter_var( $this->url, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED )
+        if( !filter_var( $this->url, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED )
+            || !filter_var( $this->url, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED )
         )
         {
             throw new ezcUrlException("Can't fetch " . $this->url);

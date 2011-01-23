@@ -16,6 +16,7 @@
  *
  * @package WebChecker
  * @version //autogen//
+ * @codeCoverageIgnore
  */
 abstract class checkerBenchmark implements iBenchmarkable
 {

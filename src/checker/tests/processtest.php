@@ -17,6 +17,7 @@
  *
  * @package WebCheckerTests
  * @version //autogen//
+ * @codeCoverageIgnore
  */
 class checkerProcessTest extends PHPUnit_Framework_TestCase
 {

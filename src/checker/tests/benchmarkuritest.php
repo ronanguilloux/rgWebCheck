@@ -17,6 +17,7 @@
  *
  * @package WebCheckerTests
  * @version //autogen//
+ * @codeCoverageIgnore
  */
 class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
 {
@@ -94,7 +95,7 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
      */
     public function testSetException_3()
     {
-        $this->object->check = 'foo'; // string excepted
+        $this->object->validateUrl = 'foo'; // string excepted
     }
 
     /**
@@ -116,6 +117,24 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException ezcBaseValueException
+     * @group WebCheckerTests
+     */
+    public function testSetException_6()
+    {
+        $this->object->expectedStrings = -1;
+    }
+
+    /**
+     * @expectedException ezcBaseValueException
+     * @group WebCheckerTests
+     */
+    public function testSetException_7()
+    {
+        $this->object->notExpectedStrings = 'foo:bar';
+    }
+
+    /**
      * @group WebCheckerTests
      */
     public function testIsset()
@@ -126,11 +145,10 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
 
     /**
      * @group WebCheckerTests
-     * @codeCoverageIgnore
      */
     public function testRun_1()
     {
-        $options = $this->fillRunOptions_1();
+        $options = $this->fillOptions( 1 );
         $this->object->setUp($options);
         $result = $this->object->run();
         //var_export($result);
@@ -168,7 +186,7 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
                 $this->assertNotEquals(false, strpos($result['content'], str_replace('  ', '', trim($expected) ) ) );
             }
         }
-        if( isset( $options['expectedStrings'] ) )
+        if( isset( $options['notExpectedStrings'] ) )
         {
             foreach( $options['notExpectedStrings'] as $notExpected )
             {
@@ -181,9 +199,9 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcUrlException
      * @group WebCheckerTests
      */
-    public function testSetRunException_2()
+    public function testRunException_2()
     {
-        $options = $this->fillRunOptions_2();
+        $options = $this->fillOptions( 2 );
         $this->object->setUp($options);
         $result = $this->object->run();
     }
@@ -192,49 +210,168 @@ class checkerBenchmarkUriTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcUrlException
      * @group WebCheckerTests
      */
-    public function testSetRunException_3()
+    public function testRunException_3()
     {
-        $options = $this->fillRunOptions_3();
+        $options = $this->fillOptions( 3 );
         $this->object->setUp($options);
         $result = $this->object->run();
     }
 
-    protected function fillRunOptions_1()
+    /**
+     * @expectedException ezcUrlException
+     * @group WebCheckerTests
+     */
+    public function testRun_4()
     {
-        return array(
-        	'scheme' => 'http',
-        	'host' => 'incubator.apache.org',        	
-        	'basedir' => array(),
-            'path' => array('zetacomponents','documentation', 'overview.html'),
-        	'query' => '',
-        	'check' => true,
-            'expectedStrings' => array( 'Apache Zeta Components' ),
-        	'notExpectedStrings' => array( 'This must not be' ),
-        );
+        $options = $this->fillOptions( 4 );
+        $this->object->setUp($options);
+        $result = $this->object->run();
     }
 
-    protected function fillRunOptions_2()
+    /**
+     * @expectedException ezcUrlException
+     * @group WebCheckerTests
+     */
+    public function testRun_5()
     {
-        return array(
-        	'scheme' => 'htp',
-        	'host' => 'foo:bar',        	
-        	'basedir' => array(),
-            'path' => array(),
-        	'query' => '',
-        	'check' => true,
-        );
+        $options = $this->fillOptions( 5 );
+        $this->object->setUp($options);
+        $result = $this->object->run();
     }
 
-    protected function fillRunOptions_3()
+    /**
+     * @group WebCheckerTests
+     */
+    public function testRunException_6()
     {
-        return array(
-        	'scheme' => null,
-        	'host' => 'foo:bar',        	
-        	'basedir' => array(),
-            'path' => array(),
-        	'query' => '',
-        	'check' => true,
-        );
+        $options = $this->fillOptions( 6 );
+        $this->object->setUp($options);
+        $result = $this->object->run();
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testRunException_7()
+    {
+        $options = $this->fillOptions( 7 );
+        $this->object->setUp($options);
+        $result = $this->object->run();
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testRunException_8()
+    {
+        $options = $this->fillOptions( 8 );
+        $this->object->setUp($options);
+        $result = $this->object->run();
+        if( isset( $options['notExpectedStrings'] ) )
+        {
+            foreach( $options['notExpectedStrings'] as $notExpected )
+            {
+                $this->assertFalse(strpos($result['content'], str_replace('  ', '', trim($notExpected) ) ) );
+            }
+        }
+    }
+
+    protected function fillOptions($index)
+    {
+        switch ( $index )
+        {
+            case 1 :
+                return array(
+                	'scheme' => 'http',
+                	'host' => 'incubator.apache.org',        	
+                	'basedir' => array(),
+                    'path' => array('zetacomponents','documentation', 'overview.html'),
+                	'query' => '',
+                	'validateUrl' => true,
+                    'expectedStrings' => array( 'Apache Zeta Components' ),
+                	'notExpectedStrings' => array( 'This must not be' ),
+                );
+                break;
+            case 2 :
+                return array(
+                	'scheme' => 'htp',
+                	'host' => 'foo:bar',        	
+                	'basedir' => array(),
+                    'path' => array(),
+                	'query' => '',
+                	'validateUrl' => true,
+                );
+                break;
+            case 3 :
+                return array(
+                	'scheme' => null,
+                	'host' => 'foo:bar',        	
+                	'basedir' => array(),
+                    'path' => array(),
+                	'query' => '',
+                	'validateUrl' => true,
+                );
+                break;
+            case 4 :
+                return array(
+                	'scheme' => 'http',
+                	'host' => '92.243.31.245',        	
+                	'basedir' => array(),
+                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                	'query' => '',
+                	'validateUrl' => true,
+                    'expectedStrings' => array( "Didn't got it !" ),
+                );
+                break;
+            case 5 :
+                return array(
+                	'scheme' => 'http',
+                	'host' => '92.243.31.245',        	
+                	'basedir' => array(),
+                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                	'query' => '',
+                	'validateUrl' => true,
+                    'password' => 'null:null',
+                	'expectedStrings' => array( 'Error' ),
+                );
+                break;
+            case 6:
+                return array(
+                	'scheme' => 'http',
+                	'host' => '92.243.31.245',        	
+                	'basedir' => array(),
+                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                	'query' => '',
+                	'validateUrl' => true,
+                    'password' => 'login:password',
+                );
+                break;
+            case 7 :
+                return array(
+                	'scheme' => 'http',
+                	'host' => '92.243.31.245',        	
+                	'basedir' => array(),
+                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                	'query' => '',
+                	'validateUrl' => true,
+                    'password' => 'login:password',
+                	'expectedStrings' => array( 'Got it !' ),
+                );
+                break;
+            case 8 :
+                return array(
+                	'scheme' => 'http',
+                	'host' => '92.243.31.245',        	
+                	'basedir' => array(),
+                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                	'query' => '',
+                	'validateUrl' => true,
+                    'password' => 'login:password',
+                	'expectedStrings' => array( "Didn't got it !" ),
+                );
+                break;
+        }
+        return array();
     }
 
 }

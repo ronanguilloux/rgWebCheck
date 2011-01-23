@@ -17,6 +17,7 @@
  *
  * @package WebCheckerTests
  * @version //autogen//
+ * @codeCoverageIgnore
  */
 class checkerBenchmarkSuiteTest extends PHPUnit_Framework_TestCase
 {
