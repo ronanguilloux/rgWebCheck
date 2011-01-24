@@ -89,7 +89,7 @@
           <td class="tableHead" colspan="11">&nbsp;</td>
         </tr>
         <tr>
-          <td class="coverItem"><b><a href="#20">checkerProcess</a></b></td>
+          <td class="coverItem"><b><a href="#20">chkProcess</a></b></td>
           <td class="coverBar" align="center" width="100">
             <table border="0" cellspacing="0" cellpadding="1">
               <tr>
@@ -308,12 +308,12 @@
 <span class="lineNum" id="container12"><a name="12"></a><a href="#12" id="line12">      12</a> </span>                :  */                                                                                                                                                                 
 <span class="lineNum" id="container13"><a name="13"></a><a href="#13" id="line13">      13</a> </span>                :                                                                                                                                                                     
 <span class="lineNum" id="container14"><a name="14"></a><a href="#14" id="line14">      14</a> </span>                : /**                                                                                                                                                                 
-<span class="lineNum" id="container15"><a name="15"></a><a href="#15" id="line15">      15</a> </span>                :  * checkerProcess Class                                                                                                                                             
+<span class="lineNum" id="container15"><a name="15"></a><a href="#15" id="line15">      15</a> </span>                :  * chkProcess Class                                                                                                                                                 
 <span class="lineNum" id="container16"><a name="16"></a><a href="#16" id="line16">      16</a> </span>                :  *                                                                                                                                                                  
 <span class="lineNum" id="container17"><a name="17"></a><a href="#17" id="line17">      17</a> </span>                :  * @package WebChecker                                                                                                                                              
 <span class="lineNum" id="container18"><a name="18"></a><a href="#18" id="line18">      18</a> </span>                :  * @version //autogen//                                                                                                                                             
 <span class="lineNum" id="container19"><a name="19"></a><a href="#19" id="line19">      19</a> </span>                :  */                                                                                                                                                                 
-<span class="lineNum" id="container20"><a name="20"></a><a href="#20" id="line20">      20</a> </span><span class="lineCov">              1 : class checkerProcess implements iProcessable                                                                                                                        </span>
+<span class="lineNum" id="container20"><a name="20"></a><a href="#20" id="line20">      20</a> </span><span class="lineCov">              1 : class chkProcess implements iProcessable                                                                                                                            </span>
 <span class="lineNum" id="container21"><a name="21"></a><a href="#21" id="line21">      21</a> </span>                : {                                                                                                                                                                   
 <span class="lineNum" id="container22"><a name="22"></a><a href="#22" id="line22">      22</a> </span>                :                                                                                                                                                                     
 <span class="lineNum" id="container23"><a name="23"></a><a href="#23" id="line23">      23</a> </span>                :     /**                                                                                                                                                             
@@ -367,7 +367,7 @@
 <span class="lineNum" id="container71"><a name="71"></a><a href="#71" id="line71">      71</a> </span><span class="lineCov">              5 :                 $this-&gt;properties['logger'] = $propertyValue;                                                                                                       </span>
 <span class="lineNum" id="container72"><a name="72"></a><a href="#72" id="line72">      72</a> </span><span class="lineCov">              5 :                 break;                                                                                                                                              </span>
 <span class="lineNum" id="container73"><a name="73"></a><a href="#73" id="line73">      73</a> </span><span class="lineCov">              3 :             case 'benchmarkSuite':                                                                                                                                  </span>
-<span class="lineNum" id="container74"><a name="74"></a><a href="#74" id="line74">      74</a> </span><span class="lineCov">              2 :                 if ( !( $propertyValue instanceof checkerBenchmarkSuite ) )                                                                                         </span>
+<span class="lineNum" id="container74"><a name="74"></a><a href="#74" id="line74">      74</a> </span><span class="lineCov">              2 :                 if ( !( $propertyValue instanceof chkBenchmarkSuite ) )                                                                                             </span>
 <span class="lineNum" id="container75"><a name="75"></a><a href="#75" id="line75">      75</a> </span><span class="lineCov">              2 :                 {                                                                                                                                                   </span>
 <span class="lineNum" id="container76"><a name="76"></a><a href="#76" id="line76">      76</a> </span><span class="lineCov">              1 :                     throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a logger object, __set() impossible in ' . __CLASS__  );</span>
 <span class="lineNum" id="container77"><a name="77"></a><a href="#77" id="line77">      77</a> </span><span class="lineDeadCode">                :                 }                                                                                                                                                   </span>
@@ -438,7 +438,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.3</a> and PHPUnit 3.5.7 at Sun Jan 23 23:21:52 CET 2011.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.3</a> and PHPUnit 3.5.7 at Mon Jan 24 8:36:11 CET 2011.</td></tr>
     </table>
 
     <br />
@@ -450,177 +450,177 @@
       YAHOO.phpunit.container.panelsData = {
         "panel20": {
           "header": "1 test covers line 20",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li></ul>",
           "footer": ""
         },
         "panel36": {
           "header": "10 tests cover line 36",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testGetException</li><li class=\"testPassed\">checkerProcessTest::testSetException_1</li><li class=\"testPassed\">checkerProcessTest::testSetException_2</li><li class=\"testPassed\">checkerProcessTest::testSetException_3</li><li class=\"testPassed\">checkerProcessTest::testIsset</li><li class=\"testPassed\">checkerProcessTest::testToString</li><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testGetException</li><li class=\"testPassed\">chkProcessTest::testSetException_1</li><li class=\"testPassed\">chkProcessTest::testSetException_2</li><li class=\"testPassed\">chkProcessTest::testSetException_3</li><li class=\"testPassed\">chkProcessTest::testIsset</li><li class=\"testPassed\">chkProcessTest::testToString</li><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel47": {
           "header": "3 tests cover line 47",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testGetException</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testGetException</li></ul>",
           "footer": ""
         },
         "panel48": {
           "header": "3 tests cover line 48",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testGetException</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testGetException</li></ul>",
           "footer": ""
         },
         "panel49": {
           "header": "2 tests cover line 49",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li></ul>",
           "footer": ""
         },
         "panel51": {
           "header": "1 test covers line 51",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testGetException</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testGetException</li></ul>",
           "footer": ""
         },
         "panel66": {
           "header": "8 tests cover line 66",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testSetException_1</li><li class=\"testPassed\">checkerProcessTest::testSetException_2</li><li class=\"testPassed\">checkerProcessTest::testSetException_3</li><li class=\"testPassed\">checkerProcessTest::testIsset</li><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testSetException_1</li><li class=\"testPassed\">chkProcessTest::testSetException_2</li><li class=\"testPassed\">chkProcessTest::testSetException_3</li><li class=\"testPassed\">chkProcessTest::testIsset</li><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel67": {
           "header": "6 tests cover line 67",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testSetException_2</li><li class=\"testPassed\">checkerProcessTest::testIsset</li><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testSetException_2</li><li class=\"testPassed\">chkProcessTest::testIsset</li><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel68": {
           "header": "6 tests cover line 68",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testSetException_2</li><li class=\"testPassed\">checkerProcessTest::testIsset</li><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testSetException_2</li><li class=\"testPassed\">chkProcessTest::testIsset</li><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel69": {
           "header": "1 test covers line 69",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetException_2</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetException_2</li></ul>",
           "footer": ""
         },
         "panel71": {
           "header": "5 tests cover line 71",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testIsset</li><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testIsset</li><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel72": {
           "header": "5 tests cover line 72",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testIsset</li><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testIsset</li><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel73": {
           "header": "3 tests cover line 73",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testSetException_1</li><li class=\"testPassed\">checkerProcessTest::testSetException_3</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testSetException_1</li><li class=\"testPassed\">chkProcessTest::testSetException_3</li></ul>",
           "footer": ""
         },
         "panel74": {
           "header": "2 tests cover line 74",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testSetException_3</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testSetException_3</li></ul>",
           "footer": ""
         },
         "panel75": {
           "header": "2 tests cover line 75",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testSetException_3</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testSetException_3</li></ul>",
           "footer": ""
         },
         "panel76": {
           "header": "1 test covers line 76",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetException_3</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetException_3</li></ul>",
           "footer": ""
         },
         "panel78": {
           "header": "1 test covers line 78",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li></ul>",
           "footer": ""
         },
         "panel79": {
           "header": "1 test covers line 79",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li></ul>",
           "footer": ""
         },
         "panel80": {
           "header": "1 test covers line 80",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetException_1</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetException_1</li></ul>",
           "footer": ""
         },
         "panel81": {
           "header": "1 test covers line 81",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetException_1</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetException_1</li></ul>",
           "footer": ""
         },
         "panel82": {
           "header": "1 test covers line 82",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetException_1</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetException_1</li></ul>",
           "footer": ""
         },
         "panel83": {
           "header": "5 tests cover line 83",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testSetters</li><li class=\"testPassed\">checkerProcessTest::testGet</li><li class=\"testPassed\">checkerProcessTest::testIsset</li><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testSetters</li><li class=\"testPassed\">chkProcessTest::testGet</li><li class=\"testPassed\">chkProcessTest::testIsset</li><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel94": {
           "header": "1 test covers line 94",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testIsset</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testIsset</li></ul>",
           "footer": ""
         },
         "panel104": {
           "header": "1 test covers line 104",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testToString</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testToString</li></ul>",
           "footer": ""
         },
         "panel114": {
           "header": "2 tests cover line 114",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel115": {
           "header": "2 tests cover line 115",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel116": {
           "header": "2 tests cover line 116",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel117": {
           "header": "2 tests cover line 117",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel118": {
           "header": "2 tests cover line 118",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel127": {
           "header": "2 tests cover line 127",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel128": {
           "header": "2 tests cover line 128",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel129": {
           "header": "2 tests cover line 129",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel131": {
           "header": "2 tests cover line 131",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel132": {
           "header": "2 tests cover line 132",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
         "panel133": {
           "header": "2 tests cover line 133",
-          "body": "<ul><li class=\"testPassed\">checkerProcessTest::testRunFree</li><li class=\"testPassed\">checkerProcessTest::testRunWithOptions</li></ul>",
+          "body": "<ul><li class=\"testPassed\">chkProcessTest::testRunFree</li><li class=\"testPassed\">chkProcessTest::testRunWithOptions</li></ul>",
           "footer": ""
         },
       "dummy": ""

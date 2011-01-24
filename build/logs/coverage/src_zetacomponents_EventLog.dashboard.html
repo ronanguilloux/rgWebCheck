@@ -27,7 +27,7 @@
             <h2>Class Coverage Distribution</h2>
             <canvas id="classCoverageDistribution" width="475" height="200"></canvas>
             <script>
-            var ccd = new RGraph.Bar('classCoverageDistribution', [0,8,0,3,0,0,0,0,0,0,0,0]);
+            var ccd = new RGraph.Bar('classCoverageDistribution', [0,5,0,2,1,0,1,0,0,1,0,1]);
             ccd.Set('chart.background.barcolor1', 'white');
             ccd.Set('chart.background.barcolor2', 'white');
             ccd.Set('chart.colors', ['blue']);
@@ -44,7 +44,7 @@
             <h2>Class Complexity</h2>
             <canvas id="classComplexity" width="475" height="200"></canvas>
             <script>
-            var cc = new RGraph.Scatter('classComplexity', [[2.4390243902439,16,"blue","ezcLogContext"],[22.535211267606,35,"blue","ezcLog"],[2.1276595744681,25,"blue","ezcLogMessage"],[1.6666666666667,20,"blue","ezcLogFilterRule"],[3.7037037037037,9,"blue","ezcLogFilterSet"],[9.0909090909091,3,"blue","ezcLogEntry"],[20,1,"blue","ezcLogFilter"],[1.3157894736842,24,"blue","ezcLogFileWriter"],[25,2,"blue","ezcLogStackWriter"],[1.8518518518519,6,"blue","ezcLogSyslogWriter"],[3.8461538461538,5,"blue","ezcLogUnixFileWriter"]]);
+            var cc = new RGraph.Scatter('classComplexity', [[9.7560975609756,16,"blue","ezcLogContext"],[36.619718309859,35,"blue","ezcLog"],[2.1276595744681,25,"blue","ezcLogMessage"],[86.666666666667,20,"blue","ezcLogFilterRule"],[55.555555555556,9,"blue","ezcLogFilterSet"],[9.0909090909091,3,"blue","ezcLogEntry"],[100,1,"blue","ezcLogFilter"],[28.947368421053,24,"blue","ezcLogFileWriter"],[25,2,"blue","ezcLogStackWriter"],[1.8518518518519,6,"blue","ezcLogSyslogWriter"],[3.8461538461538,5,"blue","ezcLogUnixFileWriter"]]);
             cc.Set('chart.xmax', 100);
             cc.Set('chart.background.barcolor1', 'white');
             cc.Set('chart.background.barcolor2', 'white');
@@ -61,13 +61,13 @@
             <h2>Top Project Risks</h2>
             <ul>
               <li><a href="src_zetacomponents_EventLog_log_message.php.html#67">ezcLogMessage</a> (610)</li>
-              <li><a href="src_zetacomponents_EventLog_log.php.html#161">ezcLog</a> (604)</li>
-              <li><a href="src_zetacomponents_EventLog_writers_writer_file.php.html#61">ezcLogFileWriter</a> (577)</li>
-              <li><a href="src_zetacomponents_EventLog_mapper_filter_rule.php.html#38">ezcLogFilterRule</a> (400)</li>
-              <li><a href="src_zetacomponents_EventLog_context.php.html#35">ezcLogContext</a> (253)</li>
-              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#41">ezcLogFilterSet</a> (81)</li>
+              <li><a href="src_zetacomponents_EventLog_log.php.html#161">ezcLog</a> (346)</li>
+              <li><a href="src_zetacomponents_EventLog_writers_writer_file.php.html#61">ezcLogFileWriter</a> (230)</li>
+              <li><a href="src_zetacomponents_EventLog_context.php.html#35">ezcLogContext</a> (204)</li>
               <li><a href="src_zetacomponents_EventLog_writers_writer_syslog.php.html#49">ezcLogSyslogWriter</a> (40)</li>
               <li><a href="src_zetacomponents_EventLog_writers_writer_unix_file.php.html#34">ezcLogUnixFileWriter</a> (27)</li>
+              <li><a href="src_zetacomponents_EventLog_mapper_filter_rule.php.html#38">ezcLogFilterRule</a> (20)</li>
+              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#41">ezcLogFilterSet</a> (16)</li>
               <li><a href="src_zetacomponents_EventLog_structs_log_entry.php.html#38">ezcLogEntry</a> (9)</li>
 
             </ul>
@@ -76,16 +76,16 @@
           <td valign="top">
             <h2>Least Tested Methods</h2>
             <ul>
-              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#96">ezcLogFilterSet::get</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#128">ezcLogFilterSet::clearCache</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#75">ezcLogFilterSet::deleteLastRule</a> (0%)</li>
               <li><a href="src_zetacomponents_EventLog_structs_log_entry.php.html#92">ezcLogEntry::__construct</a> (0%)</li>
               <li><a href="src_zetacomponents_EventLog_structs_log_entry.php.html#116">ezcLogEntry::__set_state</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#75">ezcLogFilterSet::deleteLastRule</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#62">ezcLogFilterSet::appendRule</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_mapper_filter_rule.php.html#162">ezcLogFilterRule::isMatch</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_mapper_filter_rule.php.html#188">ezcLogFilterRule::getContainer</a> (0%)</li>
               <li><a href="src_zetacomponents_EventLog_mapper_filter_rule.php.html#199">ezcLogFilterRule::shouldContinueProcessing</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_mapper_filter_rule.php.html#210">ezcLogFilterRule::getMaskArray</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_mapper_filter_rule.php.html#188">ezcLogFilterRule::getContainer</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_log_message.php.html#145">ezcLogMessage::__isset</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_context.php.html#54">ezcLogContext::reset</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_writers_writer_file.php.html#142">ezcLogFileWriter::__destruct</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_writers_writer_file.php.html#162">ezcLogFileWriter::write</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_writers_writer_syslog.php.html#72">ezcLogSyslogWriter::__construct</a> (0%)</li>
 
             </ul>
           </td>
@@ -97,7 +97,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.3</a> and PHPUnit 3.5.7 at Sun Jan 23 23:21:52 CET 2011.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.3</a> and PHPUnit 3.5.7 at Mon Jan 24 8:36:11 CET 2011.</td></tr>
     </table>
 
     <br/>

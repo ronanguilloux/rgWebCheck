@@ -1,6 +1,6 @@
 <?php
 /**
- * checkerBenchmarkSuite Class php file
+ * chkBenchmarkSuite Class php file
  * Created on January, the 12th 2010 at 21:26:14 by ronan
  *
  * @copyright Copyright (C) 2011 Ronan Guilloux. All rights reserved.
@@ -12,12 +12,12 @@
  */
 
 /**
- *  checkerBenchmarkSuite Class.
+ *  chkBenchmarkSuite Class.
  *
  * @package WebChecker
  * @version //autogen//
  */
-class checkerBenchmarkSuite implements iListable
+class chkBenchmarkSuite implements iListable
 {
 
     /**
@@ -66,7 +66,7 @@ class checkerBenchmarkSuite implements iListable
             case 'suite':
                 if ( !is_array( $propertyValue ) )
                 {
-                    throw new ezcBaseValueException( $propertyName, $propertyValue, $propertyName . ' is not a benchmarkSuite object, __set() impossible in ' . __CLASS__ );
+                    throw new ezcBaseValueException( $propertyName, $propertyValue, $propertyName . ' is not an array, __set() impossible in ' . __CLASS__ );
                 }
                 $this->properties['suite'] = $propertyValue;
                 break;
@@ -106,7 +106,7 @@ class checkerBenchmarkSuite implements iListable
 
         if ( !( $value instanceof iBenchmarkable ) )
         {
-            throw new ezcBaseValueException( 'value', 'the $value param is not a checkerBenchmark instance', 'checkerBenchmark' );
+            throw new ezcBaseValueException( 'value', 'the $value param is not a chkBenchmark instance', 'chkBenchmark' );
         }
 
         if ( $key === null)

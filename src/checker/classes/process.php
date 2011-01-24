@@ -12,12 +12,12 @@
  */
 
 /**
- * checkerProcess Class
+ * chkProcess Class
  *
  * @package WebChecker
  * @version //autogen//
  */
-class checkerProcess implements iProcessable
+class chkProcess implements iProcessable
 {
 
     /**
@@ -71,7 +71,7 @@ class checkerProcess implements iProcessable
                 $this->properties['logger'] = $propertyValue;
                 break;
             case 'benchmarkSuite':
-                if ( !( $propertyValue instanceof checkerBenchmarkSuite ) )
+                if ( !( $propertyValue instanceof chkBenchmarkSuite ) )
                 {
                     throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a logger object, __set() impossible in ' . __CLASS__  );
                 }

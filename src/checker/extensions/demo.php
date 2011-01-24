@@ -1,6 +1,6 @@
 <?php
 /**
- * checkerBenchmarkDemo Class php file
+ * chkBenchmarkDemo Class php file
  * Created on January, the 12th 2010 at 21:26:14 by ronan
  *
  * @copyright Copyright (C) 2011 Ronan Guilloux. All rights reserved.
@@ -12,12 +12,12 @@
  */
 
 /**
- *  checkerBenchmarkDemo Class.
+ *  chkBenchmarkDemo Class.
  *
  * @package WebChecker
  * @version //autogen//
  */
-class checkerBenchmarkDemo implements iBenchmarkable
+class chkBenchmarkDemo implements iBenchmarkable
 {
 
     /**
@@ -66,7 +66,7 @@ class checkerBenchmarkDemo implements iBenchmarkable
             case 'options':
                 if ( !is_array( $propertyValue ) )
                 {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a benchmarkSuite object, __set() impossible in ' . __CLASS__  );
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not an array, __set() impossible in ' . __CLASS__  );
                 }
                 $this->properties['options'] = $propertyValue;
                 break;
@@ -101,7 +101,7 @@ class checkerBenchmarkDemo implements iBenchmarkable
      * (non-PHPdoc)
      * @see iBenchmarkable::setUp()
      */
-    public function setUp($options = array())
+    public function setUp( $options = array() )
     {
         //...
     }

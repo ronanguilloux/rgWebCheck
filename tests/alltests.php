@@ -24,7 +24,7 @@ class AllTests
     {
         $suite = new PHPUnit_Framework_TestSuite('PHPUnit Framework');
         
-        $suite->addTest(checkerAllTests::suite());
+        $suite->addTest(chkAllTests::suite());
         // ...
 
         return $suite;

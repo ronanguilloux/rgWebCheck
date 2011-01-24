@@ -12,7 +12,7 @@
  */
 
 /**
- * Define an interface for processable classes
+ * Define an interface for "suitable" classes
  *
  * @package WebChecker
  * @version //autogen//

@@ -27,7 +27,7 @@
             <h2>Class Coverage Distribution</h2>
             <canvas id="classCoverageDistribution" width="475" height="200"></canvas>
             <script>
-            var ccd = new RGraph.Bar('classCoverageDistribution', [15,11,0,6,0,0,1,0,0,1,0,8]);
+            var ccd = new RGraph.Bar('classCoverageDistribution', [15,8,0,5,2,0,1,1,1,3,0,33]);
             ccd.Set('chart.background.barcolor1', 'white');
             ccd.Set('chart.background.barcolor2', 'white');
             ccd.Set('chart.colors', ['blue']);
@@ -44,7 +44,7 @@
             <h2>Class Complexity</h2>
             <canvas id="classComplexity" width="475" height="200"></canvas>
             <script>
-            var cc = new RGraph.Scatter('classComplexity', [[100,15,"blue","checkerBenchmarkSuite"],[100,13,"blue","checkerProcess"],[100,10,"blue","checkerBenchmarkDemo"],[100,40,"blue","checkerBenchmarkUri"],[100,1,"blue","checkerAllTests"],[59.52380952381,10,"blue","ezcBase"],[87.5,2,"blue","ezcBaseException"],[100,1,"blue","ezcBasePropertyNotFoundException"],[100,2,"blue","ezcBaseValueException"],[23.529411764706,6,"blue","ezcBaseInit"],[21.052631578947,12,"blue","ezcBaseOptions"],[0,5,"blue","ezcBaseAutoloadOptions"],[0,2,"blue","ezcBaseStruct"],[0,3,"blue","ezcConfigurationArrayReader"],[0,2,"blue","ezcConfigurationArrayWriter"],[0,66,"blue","ezcConfiguration"],[0,10,"blue","ezcConfigurationManager"],[0,17,"blue","ezcConfigurationFileReader"],[0,24,"blue","ezcConfigurationFileWriter"],[0,37,"blue","ezcConfigurationIniParser"],[0,17,"blue","ezcConfigurationIniReader"],[0,20,"blue","ezcConfigurationIniWriter"],[0,2,"blue","ezcConfigurationIniItem"],[0,2,"blue","ezcConfigurationValidationItem"],[0,6,"blue","ezcConfigurationValidationResult"],[2.4390243902439,16,"blue","ezcLogContext"],[22.535211267606,35,"blue","ezcLog"],[2.1276595744681,25,"blue","ezcLogMessage"],[1.6666666666667,20,"blue","ezcLogFilterRule"],[3.7037037037037,9,"blue","ezcLogFilterSet"],[9.0909090909091,3,"blue","ezcLogEntry"],[20,1,"blue","ezcLogFilter"],[1.3157894736842,24,"blue","ezcLogFileWriter"],[25,2,"blue","ezcLogStackWriter"],[1.8518518518519,6,"blue","ezcLogSyslogWriter"],[3.8461538461538,5,"blue","ezcLogUnixFileWriter"],[100,1,"blue","ezcUrlException"],[28.825622775801,126,"blue","ezcUrl"],[1.6666666666667,28,"blue","ezcUrlConfiguration"],[5.5555555555556,6,"blue","ezcUrlCreator"],[1.8181818181818,19,"blue","ezcUrlTools"],[0,1,"blue","AllTests"]]);
+            var cc = new RGraph.Scatter('classComplexity', [[100,15,"blue","chkBenchmarkSuite"],[39.393939393939,4,"blue","chkGlobalException"],[100,0,"blue","chkEmptyOptionsCheckException"],[100,0,"blue","chkMissingOptionsCheckException"],[100,0,"blue","chkMissingParameterCheckException"],[100,0,"blue","chkMissingPHPExtensionCheckException"],[100,0,"blue","chkFilterVarException"],[100,0,"blue","chkSiteAccessCrawlerException"],[100,0,"blue","chkPermissionsCheckException"],[100,0,"blue","chkExternalCheckException"],[100,0,"blue","chkW3CPearCheckException"],[100,0,"blue","chkSEOCheckException"],[100,0,"blue","chkMetaCheckException"],[100,0,"blue","chkNoDebugCheckException"],[100,0,"blue","chkModuleViewPolicyCheckException"],[100,0,"blue","chkSettingsCheckException"],[100,0,"blue","chkTooLongLogsCheckException"],[100,0,"blue","chkeZDBIntegrityCheckException"],[100,0,"blue","chkSysInfoCheckException"],[100,0,"blue","chkGoogleCheckException"],[100,0,"blue","chkWebsite2dot0CheckException"],[100,0,"blue","chkPerformanceCheckException"],[100,0,"blue","chkRedirectCheckException"],[100,0,"blue","chkCanonicalCheckException"],[100,0,"blue","chkTmpDirSizeCheckException"],[100,0,"blue","chkGenerateCheckSummaryException"],[100,13,"blue","chkProcess"],[100,10,"blue","chkBenchmarkDemo"],[100,40,"blue","chkBenchmarkUri"],[65.277777777778,28,"blue","chkBenchmarkW3C"],[100,1,"blue","chkAllTests"],[78.571428571429,10,"blue","ezcBase"],[87.5,2,"blue","ezcBaseException"],[100,1,"blue","ezcBasePropertyNotFoundException"],[100,2,"blue","ezcBaseValueException"],[23.529411764706,6,"blue","ezcBaseInit"],[21.052631578947,12,"blue","ezcBaseOptions"],[0,5,"blue","ezcBaseAutoloadOptions"],[0,2,"blue","ezcBaseStruct"],[83.333333333333,2,"blue","ezcBaseRepositoryDirectory"],[0,3,"blue","ezcConfigurationArrayReader"],[0,2,"blue","ezcConfigurationArrayWriter"],[0,66,"blue","ezcConfiguration"],[0,10,"blue","ezcConfigurationManager"],[0,17,"blue","ezcConfigurationFileReader"],[0,24,"blue","ezcConfigurationFileWriter"],[0,37,"blue","ezcConfigurationIniParser"],[0,17,"blue","ezcConfigurationIniReader"],[0,20,"blue","ezcConfigurationIniWriter"],[0,2,"blue","ezcConfigurationIniItem"],[0,2,"blue","ezcConfigurationValidationItem"],[0,6,"blue","ezcConfigurationValidationResult"],[9.7560975609756,16,"blue","ezcLogContext"],[36.619718309859,35,"blue","ezcLog"],[2.1276595744681,25,"blue","ezcLogMessage"],[86.666666666667,20,"blue","ezcLogFilterRule"],[55.555555555556,9,"blue","ezcLogFilterSet"],[9.0909090909091,3,"blue","ezcLogEntry"],[100,1,"blue","ezcLogFilter"],[28.947368421053,24,"blue","ezcLogFileWriter"],[25,2,"blue","ezcLogStackWriter"],[1.8518518518519,6,"blue","ezcLogSyslogWriter"],[3.8461538461538,5,"blue","ezcLogUnixFileWriter"],[100,1,"blue","ezcUrlException"],[28.825622775801,126,"blue","ezcUrl"],[1.6666666666667,28,"blue","ezcUrlConfiguration"],[5.5555555555556,6,"blue","ezcUrlCreator"],[1.8181818181818,19,"blue","ezcUrlTools"],[0,1,"blue","AllTests"]]);
             cc.Set('chart.xmax', 100);
             cc.Set('chart.background.barcolor1', 'white');
             cc.Set('chart.background.barcolor2', 'white');
@@ -60,15 +60,15 @@
           <td valign="top">
             <h2>Top Project Risks</h2>
             <ul>
-              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#41">ezcLogFilterSet</a> (81)</li>
-              <li><a href="src_zetacomponents_Configuration_validation_result.php.html#66">ezcConfigurationValidationResult</a> (42)</li>
-              <li><a href="src_zetacomponents_EventLog_writers_writer_syslog.php.html#49">ezcLogSyslogWriter</a> (40)</li>
               <li><a href="src_zetacomponents_Url_url_creator.php.html#51">ezcUrlCreator</a> (36)</li>
               <li><a href="src_zetacomponents_Base_options_autoload.php.html#43">ezcBaseAutoloadOptions</a> (30)</li>
               <li><a href="src_zetacomponents_EventLog_writers_writer_unix_file.php.html#34">ezcLogUnixFileWriter</a> (27)</li>
               <li><a href="src_zetacomponents_Base_init.php.html#82">ezcBaseInit</a> (22)</li>
-              <li><a href="src_zetacomponents_Base_base.php.html#33">ezcBase</a> (16)</li>
+              <li><a href="src_zetacomponents_EventLog_mapper_filter_rule.php.html#38">ezcLogFilterRule</a> (20)</li>
+              <li><a href="src_zetacomponents_EventLog_mapper_filterset.php.html#41">ezcLogFilterSet</a> (16)</li>
+              <li><a href="src_zetacomponents_Base_base.php.html#33">ezcBase</a> (10)</li>
               <li><a href="src_zetacomponents_EventLog_structs_log_entry.php.html#38">ezcLogEntry</a> (9)</li>
+              <li><a href="src_checker_classes_exceptions.php.html#23">chkGlobalException</a> (7)</li>
               <li><a href="src_zetacomponents_Base_exceptions_exception.php.html#33">ezcBaseException</a> (2)</li>
 
             </ul>
@@ -77,16 +77,16 @@
           <td valign="top">
             <h2>Least Tested Methods</h2>
             <ul>
-              <li><a href="src_zetacomponents_EventLog_log.php.html#590">ezcLog::logHandler</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log.php.html#608">ezcLog::translateSeverityName</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log_message.php.html#86">ezcLogMessage::__construct</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log_message.php.html#100">ezcLogMessage::__set</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log.php.html#521">ezcLog::setSourceAttributes</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log.php.html#496">ezcLog::setSeverityAttributes</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log.php.html#359">ezcLog::getMapper</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log.php.html#383">ezcLog::throwWriterExceptions</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log.php.html#448">ezcLog::log</a> (0%)</li>
-              <li><a href="src_zetacomponents_EventLog_log_message.php.html#124">ezcLogMessage::__get</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_context.php.html#146">ezcLogContext::unsetSourceContext</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_log.php.html#273">ezcLog::__set</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_log.php.html#295">ezcLog::__get</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_log.php.html#314">ezcLog::__isset</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_context.php.html#128">ezcLogContext::setSourceContext</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_context.php.html#101">ezcLogContext::unsetSeverityContext</a> (0%)</li>
+              <li><a href="src_zetacomponents_Configuration_validation_result.php.html#176">ezcConfigurationValidationResult::getErrorCount</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_context.php.html#54">ezcLogContext::reset</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_context.php.html#73">ezcLogContext::setSeverityContext</a> (0%)</li>
+              <li><a href="src_zetacomponents_EventLog_log.php.html#349">ezcLog::setMapper</a> (0%)</li>
 
             </ul>
           </td>
@@ -98,7 +98,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.3</a> and PHPUnit 3.5.7 at Sun Jan 23 23:21:52 CET 2011.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.3</a> and PHPUnit 3.5.7 at Mon Jan 24 8:36:11 CET 2011.</td></tr>
     </table>
 
     <br/>

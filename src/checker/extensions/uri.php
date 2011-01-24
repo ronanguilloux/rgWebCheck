@@ -1,6 +1,6 @@
 <?php
 /**
- * checkerBenchmarkUri Class php file
+ * chkBenchmarkUri Class php file
  * Created on January, the 12th 2010 at 21:26:14 by ronan
  *
  * @copyright Copyright (C) 2011 Ronan Guilloux. All rights reserved.
@@ -17,7 +17,7 @@
  * @package WebChecker
  * @version //autogen//
  */
-class checkerBenchmarkUri implements iBenchmarkable
+class chkBenchmarkUri implements iBenchmarkable
 {
 
     /**
@@ -285,7 +285,7 @@ class checkerBenchmarkUri implements iBenchmarkable
         }
         if( ! $acceptablesHttpCodes )
         {
-            $acceptablesHttpCodes = checkerBenchmarkUri::acceptablesHttpCodes();
+            $acceptablesHttpCodes = chkBenchmarkUri::acceptablesHttpCodes();
         }
         $result['status'] = curl_exec( $handle );
         if( !$result['status'] )
