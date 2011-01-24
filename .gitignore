@@ -1,6 +1,7 @@
 
 # Builds #
 ##########
+builds/**/* 
 
 # Compiled source #
 ###################
