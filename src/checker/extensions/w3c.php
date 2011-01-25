@@ -79,6 +79,13 @@ class chkBenchmarkW3C implements iBenchmarkable
                 }
                 $this->properties['urls'] = $propertyValue;
                 break;
+            case 'stopOnError':
+                if ( !is_bool( $propertyValue ) )
+                {
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a boolean, __set() impossible in ' . __CLASS__  );
+                }
+                $this->properties['stopOnError'] = $propertyValue;
+                break;
             default:
                 throw new ezcBasePropertyNotFoundException( $propertyName . ' property is unknown, __setting impossible in ' . __CLASS__ );
         }
@@ -116,6 +123,10 @@ class chkBenchmarkW3C implements iBenchmarkable
         {
             $this->urls = $options['urls'];
         }
+        if( isset( $options['stopOnError'] ) )
+        {
+            $this->stopOnError = $options['stopOnError'];
+        }
     }
 
     /**
@@ -129,20 +140,20 @@ class chkBenchmarkW3C implements iBenchmarkable
      */
     public function run()
     {
-        //TODO : RETURN an ARRAY : 
+        //TODO : RETURN an ARRAY :
         $result = array();
-        
+
         $log = '';
         try{
-            if ( count( $this->options ) === 0 ) {
-                throw new chkEmptyOptionsCheckException( __METHOD__.' : $this->options parameter is empty' );
+            if ( !isset($this->urls ) ) {
+                throw new chkMissingOptionsCheckException( __METHOD__.' : urls array is missing in $this->options parameter' );
             }
 
-            if ( !isset($this->options['urls'] ) ) {
-                throw new chkMissingOptionsCheckException( __METHOD__.' : url is missing in $this->options parameter' );
+            if ( count($this->urls ) === 0 ) {
+                throw new chkMissingOptionsCheckException( __METHOD__.' : urls array is empty in $this->options parameter' );
             }
 
-            foreach ($this->options['urls'] as $url) {
+            foreach ($this->urls as $url) {
                 if ( !filter_var($url, FILTER_VALIDATE_URL ) ) {
                     throw new chkFilterVarException( __METHOD__.' : '. $url . ' is not a valid URL' );
                 }
@@ -172,7 +183,11 @@ class chkBenchmarkW3C implements iBenchmarkable
             chkGlobalException::log( $e  . ' : undefined exception caught in ' . __METHOD__, ezcLog::ERROR );
             return false;
         }
-        foreach ($this->options['urls'] as $url) {
+
+        $success = true;
+
+        foreach ($this->urls as $url) {
+            if( $success )
             try{
                 $ch = curl_init();
                 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
@@ -183,11 +198,16 @@ class chkBenchmarkW3C implements iBenchmarkable
                 {
                     $log = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER. $url  . " : ERRORS FOUND at the W3C validator check";
                     chkGlobalException::log( $log );
-                    return false;
+                    $success = false;
+                    if( $this->stopOnError )
+                    {
+                        break;
+                    }
+
                 }
                 $log = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER . $url  . " : OK at the W3C validator check";
                 chkGlobalException::log( $log );
-                return true;
+                $success = true;
             }
             catch( Exception $e )
             {
@@ -195,6 +215,6 @@ class chkBenchmarkW3C implements iBenchmarkable
                 return false;
             }
         }
-        return true;
+        return $success;
     }
 }

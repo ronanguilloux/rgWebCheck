@@ -24,7 +24,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     * 
+     *
      * @group WebCheckerTests
      */
     protected function setUp()
@@ -46,6 +46,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     public function testSet()
     {
         $this->object->options = array();
+        $this->object->urls = array();
     }
 
     /**
@@ -55,6 +56,14 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     {
         $this->object->options = array();
         $foo = $this->object->options;
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testToString()
+    {
+        $this->assertSame( (string)$this->object, 'chkBenchmarkW3C');
     }
 
     /**
@@ -83,27 +92,157 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     {
         $this->object->foo = 'bar';
     }
-    
+
+    /**
+     * @expectedException ezcBaseValueException
+     * @group WebCheckerTests
+     */
+    public function testSetException_3()
+    {
+        $this->object->urls = 'foo:bar';
+    }
+
+    /**
+     * @expectedException ezcBaseValueException
+     * @group WebCheckerTests
+     */
+    public function testSetException_4()
+    {
+        $this->object->stopOnError = 'foo:bar';
+    }
+
     /**
      * @group WebCheckerTests
      */
     public function testIsset()
     {
-        $this->object->options = array();
+        $options = array();
+        $this->object->setUp( $options );
         $this->assertTrue( isset( $this->object->options ) );
     }
 
     /**
      * @group WebCheckerTests
      */
-    public function testRun()
+    public function testSetUp_1()
     {
-        $this->object->setUp();
-        $this->object->options = array( 'urls'=> array( 'http://www.csszengarden.com' ) );
-		$this->assertTrue( $this->object->run( ) );
-		$this->object->options = array( 'urls'=> array( 'http://www.google.com' ) );
-		$this->assertFalse( $this->object->run( ) );
+        $options = array( 'urls' => array( 'http://foo.bar' ) );
+        $this->object->setUp( $options );
+        $this->assertSame( $this->object->urls, $options['urls'] );
     }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testSetUp_2()
+    {
+        $options = array( 'stopOnError' => true );
+        $this->object->setUp( $options );
+        $this->assertSame( $this->object->stopOnError, $options['stopOnError'] );
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testRun_1()
+    {
+        $options = array( 'urls' => array( 'http://www.csszengarden.com' ) );
+        $this->object->setUp( $options );
+        $result = $this->object->run();
+        $this->assertTrue( $result );
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testRun_2()
+    {
+        $options = array( 'urls'=> array( 'http://www.google.com' ) );
+        $this->object->setUp( $options );
+        $this->assertFalse( $this->object->run( ) );
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testRun_3()
+    {
+        $options = array(
+        	'urls'=> array( 'http://www.google.com' ), 
+        	'stopOnError' => true );
+        $this->object->setUp( $options );
+        $this->assertFalse( $this->object->run( ) );
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testRun_4()
+    {
+        $options = array(
+        	'urls'=> array( 'http://www.google.com' ), 
+        	'stopOnError' => false );
+        $this->object->setUp( $options );
+        $this->assertTrue( $this->object->run( ) );
+    }
+
+
+    /**
+     * expectedException chkEmptyOptionsCheckException is managed-inside
+     * @group WebCheckerTests
+     */
+    public function testRunException_1()
+    {
+        $options = array();
+        $this->object->setUp( $options );
+        $this->assertFalse( $this->object->run( ) );
+    }
+
+    /**
+     * expectedException chkMissingOptionsCheckException is managed-inside
+     * @group WebCheckerTests
+     */
+    public function testRunException_2()
+    {
+        $options = array( 'foo' => array() );
+        $this->object->setUp( $options );
+        $this->assertFalse( $this->object->run() );
+    }
+
+
+    /**
+     * expectedException chkMissingOptionsCheckException is managed-inside
+     * @group WebCheckerTests
+     */
+    public function testRunException_3()
+    {
+        $options = array( 'urls' => array() );
+        $this->object->setUp( $options );
+        $this->assertFalse( $this->object->run() );
+    }
+
+    /**
+     * expectedException chkFilterVarException is managed-inside
+     * @group WebCheckerTests
+     */
+    public function testRunException_4()
+    {
+        $options = array( 'urls' => array( 'foo.bar') );
+        $this->object->setUp( $options );
+        $this->assertFalse( $this->object->run() );
+    }
+
+    /**
+    * expectedException chkFilterVarException is managed-inside
+    * @group WebCheckerTests
+    */
+    public function testRunException_5()
+    {
+        $options = array( 'stopOnError' => false );
+        $this->object->setUp( $options );
+        $this->assertFalse( $this->object->run() );
+    }
+
 
 }
 ?>
