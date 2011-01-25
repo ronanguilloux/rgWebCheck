@@ -158,6 +158,8 @@ class chkBenchmarkW3C implements iBenchmarkable
                     throw new chkFilterVarException( __METHOD__.' : '. $url . ' is not a valid URL' );
                 }
             }
+            
+            // @codeCoverageIgnoreStart
             if ( class_exists('Services_W3C_HTMLValidator' ) ) {
                 throw new chkW3CPearCheckException( __METHOD__.' : Please uncomment this piece of code below  in ' . __FILE__. ', line ' . __LINE__ . ' :' );
 
@@ -168,14 +170,20 @@ class chkBenchmarkW3C implements iBenchmarkable
                 //return $r->isValid();
                 //</PEAR's Services_W3C_HTMLValidator>
             }
+            // @codeCoverageIgnoreEnd
+            
+            // @codeCoverageIgnoreStart
             if( !function_exists( 'curl_init' ) )
             {
                 throw new chkMissingPHPExtensionCheckException( __METHOD__.' : is php-curl installed ? :' );
             }
+            // @codeCoverageIgnoreEnd
         }
         catch( chkEmptyOptionsCheckException $e ) { return false; }
         catch( chkMissingOptionsCheckException $e ) { return false; }
         catch( chkFilterVarException $e ) { return false; }
+
+        // @codeCoverageIgnoreStart
         catch( chkW3CPearCheckException $e ) { return false; }
         catch( chkMissingPHPExtensionCheckException $e ) { return false;}
         catch( Exception $e)
@@ -183,7 +191,8 @@ class chkBenchmarkW3C implements iBenchmarkable
             chkGlobalException::log( $e  . ' : undefined exception caught in ' . __METHOD__, ezcLog::ERROR );
             return false;
         }
-
+        // @codeCoverageIgnoreEnd
+        
         $success = true;
 
         foreach ($this->urls as $url) {
