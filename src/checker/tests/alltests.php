@@ -32,7 +32,7 @@ class chkAllTests
         $suite->addTestSuite( 'chkBenchmarkSuiteTest' );
         $suite->addTestSuite( 'chkBenchmarkDemoTest' );
         $suite->addTestSuite( 'chkBenchmarkUriTest' );
-        $suite->addTestSuite( 'chkBenchmarkW3CTest' );
+        //$suite->addTestSuite( 'chkBenchmarkW3CTest' );
         return $suite;
     }
 }

@@ -8,7 +8,7 @@
  * @version //autogen//
  * @author Ronan Guilloux - coolforest.net
  * @package WebChecker
- * @filesource iprocessable
+ * @filesource iprocessable.php
  */
 
 /**

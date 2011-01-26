@@ -24,7 +24,7 @@ class chkBenchmarkDemoTest extends PHPUnit_Framework_TestCase
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
-     * 
+     *
      * @group WebCheckerTests
      */
     protected function setUp()
@@ -83,7 +83,7 @@ class chkBenchmarkDemoTest extends PHPUnit_Framework_TestCase
     {
         $this->object->foo = 'bar';
     }
-    
+
     /**
      * @group WebCheckerTests
      */
@@ -91,6 +91,14 @@ class chkBenchmarkDemoTest extends PHPUnit_Framework_TestCase
     {
         $this->object->options = array();
         $this->assertTrue( isset( $this->object->options ) );
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testToString()
+    {
+        (string)$foo = (string)$this->object;
     }
 
     /**

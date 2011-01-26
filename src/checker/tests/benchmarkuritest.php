@@ -44,29 +44,17 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     /**
      * @group WebCheckerTests
      */
-    public function testSet()
-    {
-        $this->object->options = array();
-        $this->object->password = '';
-        $this->object->password = '%$foo$Bar!';
-    }
-
-    /**
-     * @group WebCheckerTests
-     */
     public function testGet()
     {
-        $this->object->options = array();
+        $this->object->options = new chkStructUriOptions();
         $foo = $this->object->options;
-        $this->object->password = '%$foo$Bar!';
-        $bar = $this->object->password;
     }
 
     /**
      * @expectedException ezcBasePropertyNotFoundException
      * @group WebCheckerTests
      */
-    public function testGetException()
+    public function testGetExceptionOnNonExistingProperty()
     {
         $foo = $this->object->bar;
     }
@@ -75,7 +63,7 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcBaseValueException
      * @group WebCheckerTests
      */
-    public function testSetException_1()
+    public function testSetExceptionOnExistingOptionsPropertyWithWrongValue()
     {
         $this->object->options = -1;
     }
@@ -84,54 +72,27 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcBaseValueException
      * @group WebCheckerTests
      */
-    public function testSetException_2()
+    public function testSetExceptionOnExistingezcUrlPropertyWithWrongValue()
     {
         $this->object->url = new ezcUrl(); // string excepted
     }
 
-    /**
-     * @expectedException ezcBaseValueException
-     * @group WebCheckerTests
-     */
-    public function testSetException_3()
-    {
-        $this->object->validateUrl = 'foo'; // string excepted
-    }
-
-    /**
-     * @expectedException ezcBaseValueException
-     * @group WebCheckerTests
-     */
-    public function testSetException_4()
-    {
-        $this->object->password = new ArrayObject( array() );
-    }
+    //    /**
+    //     * @expectedException ezcBaseValueException
+    //     * @group WebCheckerTests
+    //     */
+    //    public function testSetException_4()
+    //    {
+    //        $this->object->options->password = new ArrayObject( array() );
+    //    }
 
     /**
      * @expectedException ezcBasePropertyNotFoundException
      * @group WebCheckerTests
      */
-    public function testSetException_5()
+    public function testSetExceptionOnNonExistingProperty()
     {
         $this->object->foo = 'bar';
-    }
-
-    /**
-     * @expectedException ezcBaseValueException
-     * @group WebCheckerTests
-     */
-    public function testSetException_6()
-    {
-        $this->object->expectedStrings = -1;
-    }
-
-    /**
-     * @expectedException ezcBaseValueException
-     * @group WebCheckerTests
-     */
-    public function testSetException_7()
-    {
-        $this->object->notExpectedStrings = 'foo:bar';
     }
 
     /**
@@ -139,8 +100,16 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      */
     public function testIsset()
     {
-        $this->object->options = array();
+        $this->object->options = new chkStructUriOptions();
         $this->assertTrue( isset( $this->object->options ) );
+    }
+
+    /**
+     * @group WebCheckerTests
+     */
+    public function testToString()
+    {
+        (string)$foo = (string)$this->object;
     }
 
     /**
@@ -149,9 +118,8 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     public function testRun_1()
     {
         $options = $this->fillOptions( 1 );
-        $this->object->setUp($options);
+        $this->object->setUp( $options );
         $result = $this->object->run();
-        //var_export($result);
         $this->assertTrue( $result['result'] );
 
         // tracing :
@@ -179,16 +147,16 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
         //        // Output
         //        var_export( $tidy );
 
-        if( isset( $options['expectedStrings'] ) )
+        if( isset( $options->expectedStrings ) )
         {
-            foreach( $options['expectedStrings'] as $expected )
+            foreach( $options->expectedStrings as $expected )
             {
                 $this->assertNotEquals(false, strpos($result['content'], str_replace('  ', '', trim($expected) ) ) );
             }
         }
-        if( isset( $options['notExpectedStrings'] ) )
+        if( isset( $options->notExpectedStrings ) )
         {
-            foreach( $options['notExpectedStrings'] as $notExpected )
+            foreach( $options->notExpectedStrings as $notExpected )
             {
                 $this->assertFalse(strpos($result['content'], str_replace('  ', '', trim($notExpected) ) ) );
             }
@@ -202,7 +170,7 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     public function testRunException_2()
     {
         $options = $this->fillOptions( 2 );
-        $this->object->setUp($options);
+        $this->object->setUp( $options );
         $result = $this->object->run();
     }
 
@@ -213,7 +181,7 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     public function testRunException_3()
     {
         $options = $this->fillOptions( 3 );
-        $this->object->setUp($options);
+        $this->object->setUp( $options );
         $result = $this->object->run();
     }
 
@@ -223,8 +191,9 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      */
     public function testRun_4()
     {
+        $result = $this->object->run();
         $options = $this->fillOptions( 4 );
-        $this->object->setUp($options);
+        $this->object->setUp( $options );
         $result = $this->object->run();
     }
 
@@ -235,7 +204,7 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     public function testRun_5()
     {
         $options = $this->fillOptions( 5 );
-        $this->object->setUp($options);
+        $this->object->setUp( $options );
         $result = $this->object->run();
     }
 
@@ -245,7 +214,7 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     public function testRunException_6()
     {
         $options = $this->fillOptions( 6 );
-        $this->object->setUp($options);
+        $this->object->setUp( $options );
         try
         {
             $result = $this->object->run();
@@ -262,15 +231,8 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     public function testRunException_7()
     {
         $options = $this->fillOptions( 7 );
-        $this->object->setUp($options);
-        try
-        {
-            $result = $this->object->run();
-        }
-        catch (Exception $e)
-        {
-            $this->markTestSkipped('This test was skipped,  the test url is probably no more available');
-        }
+        $this->object->setUp( $options );
+        $result = $this->object->run();
     }
 
     /**
@@ -279,109 +241,124 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     public function testRunException_8()
     {
         $options = $this->fillOptions( 8 );
-        $this->object->setUp($options);
+        $this->object->setUp( $options );
         $result = $this->object->run();
-        if( isset( $options['notExpectedStrings'] ) )
+        if( isset( $options->notExpectedStrings ) )
         {
-            foreach( $options['notExpectedStrings'] as $notExpected )
+            foreach( $options->notExpectedStrings as $notExpected )
             {
                 $this->assertFalse(strpos($result['content'], str_replace('  ', '', trim($notExpected) ) ) );
             }
         }
     }
 
-    protected function fillOptions($index)
+    /**
+     * Fill chkStructUriOptions objects for tests purposes
+     *
+     * @param int $index
+     */
+    protected function fillOptions( $index )
     {
         switch ( $index )
         {
             case 1 :
-                return array(
-                	'scheme' => 'http',
-                	'host' => 'incubator.apache.org',        	
-                	'basedir' => array(),
-                    'path' => array('zetacomponents','documentation', 'overview.html'),
-                	'query' => '',
-                	'validateUrl' => true,
-                    'expectedStrings' => array( 'Apache Zeta Components' ),
-                	'notExpectedStrings' => array( 'This must not be' ),
+                return new chkStructUriOptions(
+        	'http',
+        	'incubator.apache.org',        	
+                array(),
+                array('zetacomponents','documentation', 'overview.html'),
+                null,
+            '',
+                true,
+                null,
+                array( 'Apache Zeta Components' ),
+                array( 'This must not be' )
                 );
                 break;
             case 2 :
-                return array(
-                	'scheme' => 'htp',
-                	'host' => 'foo:bar',        	
-                	'basedir' => array(),
-                    'path' => array(),
-                	'query' => '',
-                	'validateUrl' => true,
+                return new chkStructUriOptions(
+                null,
+        	    null,   	
+                array(),
+                array(),
+                null,
+        	'',
+                true
                 );
                 break;
             case 3 :
-                return array(
-                	'scheme' => null,
-                	'host' => 'foo:bar',        	
-                	'basedir' => array(),
-                    'path' => array(),
-                	'query' => '',
-                	'validateUrl' => true,
+                return new chkStructUriOptions(
+                null,
+        	'foo:bar',        	
+                array(),
+                array(),
+                null,
+        	'',
+                true
                 );
                 break;
             case 4 :
-                return array(
-                	'scheme' => 'http',
-                	'host' => '92.243.31.245',        	
-                	'basedir' => array(),
-                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                	'query' => '',
-                	'validateUrl' => true,
-                    'expectedStrings' => array( "Didn't got it !" ),
+                return new chkStructUriOptions(
+        	'http',
+        	'92.243.31.245',        	
+                array(),
+                array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                null,
+        	'',
+                true,
+                null,
+                array( "Didn't got it !" )
                 );
                 break;
             case 5 :
-                return array(
-                	'scheme' => 'http',
-                	'host' => '92.243.31.245',        	
-                	'basedir' => array(),
-                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                	'query' => '',
-                	'validateUrl' => true,
-                    'password' => 'null:null',
-                	'expectedStrings' => array( 'Error' ),
+                return new chkStructUriOptions(
+        	'http',
+        	'92.243.31.245',        	
+                array(),
+                array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                null,
+        	'',
+                true,
+            'null:null',
+                array( 'Error' )
                 );
                 break;
             case 6:
-                return array(
-                	'scheme' => 'http',
-                	'host' => '92.243.31.245',        	
-                	'basedir' => array(),
-                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                	'query' => '',
-                	'validateUrl' => true,
-                    'password' => 'login:password',
-                );
-                break;
+                return new chkStructUriOptions(
+        	'http',
+        	'92.243.31.245',        	
+                array(),
+                array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                null,
+        	'',
+                true,
+            'login:password'
+            );
+            break;
             case 7 :
-                return array(
-                	'scheme' => 'http',
-                	'host' => '92.243.31.245',        	
-                	'basedir' => array(),
-                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                	'query' => '',
-                	'validateUrl' => true,
-                    'password' => 'login:password',
-                	'expectedStrings' => array( 'Got it !' ),
+                return new chkStructUriOptions(
+        			'http',
+        			'92.243.31.245',        	
+                array(),
+                array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                null,
+        			'',
+                true,
+            		'login:password',
+                array( 'Got it !' )
                 );
                 break;
             case 8 :
-                return array(
-                	'scheme' => 'http',
-                	'host' => '92.243.31.245',        	
-                	'basedir' => array(),
-                    'path' => array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                	'query' => '',
-                	'validateUrl' => true,
-                    'password' => 'login:password',
-                	'expectedStrings' => array( "Didn't got it !" ),
+                return new chkStructUriOptions(
+        	'http',
+        	'92.243.31.245',        	
+                array(),
+                array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                null,
+        	'',
+                true,
+            'login:password',
+                array( "Didn't got it !" )
                 );
                 break;
         }

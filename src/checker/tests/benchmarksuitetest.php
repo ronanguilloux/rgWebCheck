@@ -73,7 +73,7 @@ class chkBenchmarkSuiteTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcBaseValueException
      * @group WebCheckerTests
      */
-    public function testSetException_1()
+    public function testSetExceptionOnExistingPropertyWithWrongValue()
     {
         $this->object->suite = -1;
     }
@@ -82,7 +82,7 @@ class chkBenchmarkSuiteTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcBasePropertyNotFoundException
      * @group WebCheckerTests
      */
-    public function testSetException_2()
+    public function testSetExceptionOnNonExistingProperty()
     {
         $this->object->foo = 'bar';
     }

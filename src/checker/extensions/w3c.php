@@ -144,53 +144,51 @@ class chkBenchmarkW3C implements iBenchmarkable
         $result = array();
 
         $log = '';
-        try{
-            if ( !isset($this->urls ) ) {
-                throw new chkMissingOptionsCheckException( __METHOD__.' : urls array is missing in $this->options parameter' );
-            }
-
-            if ( count($this->urls ) === 0 ) {
-                throw new chkMissingOptionsCheckException( __METHOD__.' : urls array is empty in $this->options parameter' );
-            }
-
-            foreach ($this->urls as $url) {
-                if ( !filter_var($url, FILTER_VALIDATE_URL ) ) {
-                    throw new chkFilterVarException( __METHOD__.' : '. $url . ' is not a valid URL' );
-                }
-            }
-            
-            // @codeCoverageIgnoreStart
-            if ( class_exists('Services_W3C_HTMLValidator' ) ) {
-                throw new chkW3CPearCheckException( __METHOD__.' : Please uncomment this piece of code below  in ' . __FILE__. ', line ' . __LINE__ . ' :' );
-
-                //<PEAR's Services_W3C_HTMLValidator>
-                //require_once 'Services/W3C/HTMLValidator.php';
-                //$v = new Services_W3C_HTMLValidator();
-                //$r = $v->validate($this->options['url'] );
-                //return $r->isValid();
-                //</PEAR's Services_W3C_HTMLValidator>
-            }
-            // @codeCoverageIgnoreEnd
-            
-            // @codeCoverageIgnoreStart
-            if( !function_exists( 'curl_init' ) )
-            {
-                throw new chkMissingPHPExtensionCheckException( __METHOD__.' : is php-curl installed ? :' );
-            }
-            // @codeCoverageIgnoreEnd
+        if ( !isset($this->urls ) ) {
+            throw new chkMissingOptionsCheckException( __METHOD__.' : urls array is missing in $this->options parameter' );
         }
-        catch( chkEmptyOptionsCheckException $e ) { return false; }
-        catch( chkMissingOptionsCheckException $e ) { return false; }
-        catch( chkFilterVarException $e ) { return false; }
+
+        if ( count($this->urls ) === 0 ) {
+            throw new chkMissingOptionsCheckException( __METHOD__.' : urls array is empty in $this->options parameter' );
+        }
+
+        foreach ($this->urls as $url) {
+            if ( !filter_var($url, FILTER_VALIDATE_URL ) ) {
+                throw new chkFilterVarException( __METHOD__.' : '. $url . ' is not a valid URL' );
+            }
+        }
 
         // @codeCoverageIgnoreStart
-        catch( chkW3CPearCheckException $e ) { return false; }
-        catch( chkMissingPHPExtensionCheckException $e ) { return false;}
-        catch( Exception $e)
-        {
-            chkGlobalException::log( $e  . ' : undefined exception caught in ' . __METHOD__, ezcLog::ERROR );
-            return false;
+        if ( class_exists('Services_W3C_HTMLValidator' ) ) {
+            throw new chkW3CPearCheckException( __METHOD__.' : Please uncomment this piece of code below  in ' . __FILE__. ', line ' . __LINE__ . ' :' );
+
+            //<PEAR's Services_W3C_HTMLValidator>
+            //require_once 'Services/W3C/HTMLValidator.php';
+            //$v = new Services_W3C_HTMLValidator();
+            //$r = $v->validate($this->options['url'] );
+            //return $r->isValid();
+            //</PEAR's Services_W3C_HTMLValidator>
         }
+        // @codeCoverageIgnoreEnd
+        
+        // @codeCoverageIgnoreStart
+        if( !function_exists( 'curl_init' ) )
+        {
+            throw new chkMissingPHPExtensionCheckException( __METHOD__.' : is php-curl installed ? :' );
+        }
+            // @codeCoverageIgnoreEnd
+//        catch( chkEmptyOptionsCheckException $e ) { return false; }
+//        catch( chkMissingOptionsCheckException $e ) { return false; }
+//        catch( chkFilterVarException $e ) { return false; }
+//
+//        // @codeCoverageIgnoreStart
+//        catch( chkW3CPearCheckException $e ) { return false; }
+//        catch( chkMissingPHPExtensionCheckException $e ) { return false;}
+//        catch( Exception $e)
+//        {
+//            chkGlobalException::log( $e  . ' : undefined exception caught in ' . __METHOD__, ezcLog::ERROR );
+//            return false;
+//        }
         // @codeCoverageIgnoreEnd
         
         $success = true;
