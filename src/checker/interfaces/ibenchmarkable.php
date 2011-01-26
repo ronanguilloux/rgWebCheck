@@ -8,7 +8,7 @@
  * @version //autogen//
  * @author Ronan Guilloux - coolforest.net
  * @package WebChecker
- * @filesource ibenchmarkable
+ * @filesource ibenchmarkable.php
  */
 
 /**
@@ -24,9 +24,10 @@ interface iBenchmarkable
     /**
      * Set up the process
      * 
-     * @param array $options
+     * @param chkStructUriOptions $uriOptions
+     * @see iBenchmarkable::setUp()
      */
-    public function setUp( $options = array() );
+    public function setUp( $uriOptions = null );
     
     /**
      * Run the process

@@ -32,7 +32,7 @@ class chkBenchmarkUri implements iBenchmarkable
      */
     public function __construct( )
     {
-        $this->options = array();
+        $this->options = new chkStructUriOptions();
     }
 
     /**
@@ -64,9 +64,9 @@ class chkBenchmarkUri implements iBenchmarkable
         switch ( $propertyName )
         {
             case 'options':
-                if ( !is_array( $propertyValue ) )
+                if ( !( $propertyValue instanceof chkStructUriOptions ) )
                 {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not an array, __set() impossible in ' . __CLASS__  );
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a chkStructUriOptions instance, __set() impossible in ' . __CLASS__  );
                 }
                 $this->properties['options'] = $propertyValue;
                 break;
@@ -76,34 +76,6 @@ class chkBenchmarkUri implements iBenchmarkable
                     throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a string, __set() impossible in ' . __CLASS__  );
                 }
                 $this->properties['url'] = $propertyValue;
-                break;
-            case 'password':
-                if ( !is_string( $propertyValue ) )
-                {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a string, __set() impossible in ' . __CLASS__  );
-                }
-                $this->properties['password'] = $propertyValue;
-                break;
-            case 'validateUrl':
-                if ( !is_bool( $propertyValue ) )
-                {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a boolean value, __set() impossible in ' . __CLASS__  );
-                }
-                $this->properties['validateUrl'] = $propertyValue;
-                break;
-            case 'expectedStrings':
-                if ( !is_array( $propertyValue ) )
-                {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not an array, __set() impossible in ' . __CLASS__  );
-                }
-                $this->properties['validateUrl'] = $propertyValue;
-                break;
-            case 'notExpectedStrings':
-                if ( !is_array( $propertyValue ) )
-                {
-                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not an array, __set() impossible in ' . __CLASS__  );
-                }
-                $this->properties['notExpectedStrings'] = $propertyValue;
                 break;
             default:
                 throw new ezcBasePropertyNotFoundException( $propertyName . ' property is unknown, __setting impossible in ' . __CLASS__ );
@@ -135,58 +107,36 @@ class chkBenchmarkUri implements iBenchmarkable
     /**
      * Set up the process
      *
-     * @param string $logger
-     * @see http://www.php.net/manual/fr/function.http-build-url.php
+     * @param chkStructUriOptions $uriOptions
+     * @see iBenchmarkable::setUp()
      */
-    public function setUp( $options = array(
-    	'scheme' => 'http',
-    	'host' => null, 
-    	'basedir' => null,
-    	'path' => null,
-    	'script' => null,  
-    	'query' => null,
-        'validateUrl' => null,
-    	'password' => null,
-    	'expectedStrings' => null,
-    	'notExpectedStrings' => null,
-    ) )
+    public function setUp( $uriOptions = null )
     {
         $urlBuilder = new ezcUrl();
-
+        if( isset( $uriOptions ) ) $this->options = $uriOptions;
         //mandatory:
-        $urlBuilder->host = $options['host'];
-        $urlBuilder->path = $options['path'];
+        if( isset( $uriOptions ) )
+        {
+            if( isset( $uriOptions->host ) ) $urlBuilder->host = $uriOptions->host;
+            if( isset( $uriOptions->path ) ) $urlBuilder->path = $uriOptions->path;
+        }
+        $urlBuilder->scheme = 'http';
 
         //optionnals:
-        if( isset( $options['scheme'] ) )
+        if( isset( $uriOptions->scheme ) )
         {
-            $urlBuilder->scheme = 'http';
+            $urlBuilder->scheme = $uriOptions->scheme;
         }
-        if( isset( $options['basedir'] ) )
+        if( isset( $uriOptions->basedir ) )
         {
-            $urlBuilder->basedir = $options['basedir'];
+            $urlBuilder->basedir = $uriOptions->basedir;
         }
-        if( isset( $options['query'] ) )
+        if( isset( $uriOptions->query ) )
         {
-            $urlBuilder->query = $options['query'];
+            $urlBuilder->query = $uriOptions->query;
         }
-        if( isset( $options['validateUrl'] ) )
-        {
-            $this->validateUrl = $options['validateUrl'];
-        }
-        if( isset( $options['password'] ) && trim($options['password']) !== '' )
-        {
-            $this->password = $options['password'];
-        }
-        if( isset( $options['expectedStrings'] ) )
-        {
-            $this->expectedStrings = $options['expectedStrings'];
-        }
-        if( isset( $options['notExpectedStrings'] ) )
-        {
-            $this->notExpectedStrings = $options['notExpectedStrings'];
-        }
-        return $this->url = $urlBuilder->buildUrl( false );
+        $this->url = $urlBuilder->buildUrl( false );
+
     }
 
     /**
@@ -196,11 +146,11 @@ class chkBenchmarkUri implements iBenchmarkable
      */
     public function run()
     {
-        if( !isset( $this->url ))
+        if ( !isset( $this->url ) )
         {
-            $this->setUp();
+            return array( 'result' => false );
         }
-        if( isset( $this->validateUrl )  && $this->validateUrl )
+        if( isset( $this->options->validateUrl )  && $this->options->validateUrl )
         {
             // TODO : url checking to be improved and documented
             // see http://us4.php.net/manual/en/function.get-headers.php
@@ -225,9 +175,10 @@ class chkBenchmarkUri implements iBenchmarkable
             *
             */
             // http://www.presence-pc.com/forum/ppc/Programmation/test-presence-fichier-distant-is_file-sujet-1000-1.htm
-            return $this->checkUrl();
+
+            // on error return false
         }
-        return false;
+        return $this->checkUrl();
     }
 
     /**
@@ -255,10 +206,10 @@ class chkBenchmarkUri implements iBenchmarkable
      * @param bool $fetchBodyContent
      * @return mixed $connectable : CURLOPT_RETURNTRANSFER option is set, it will return the result on success, FALSE on failure
      */
-    public function checkUrl($acceptablesHttpCodes = null, $tmpDir = '/tmp', $fetchBodyContent = true) {
+    protected function checkUrl($acceptablesHttpCodes = null, $tmpDir = '/tmp', $fetchBodyContent = true) {
         $result = array();
         if( !filter_var( $this->url, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED )
-            || !filter_var( $this->url, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED )
+        || !filter_var( $this->url, FILTER_VALIDATE_URL, FILTER_FLAG_HOST_REQUIRED )
         )
         {
             throw new ezcUrlException("Can't fetch " . $this->url);
@@ -279,9 +230,9 @@ class chkBenchmarkUri implements iBenchmarkable
         curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $handle, CURLOPT_FILE, $fp);
 
-        if( isset( $this->password ) && trim( $this->password !== '') )
+        if( isset( $this->options->password ) && trim( $this->options->password !== '') )
         {
-            curl_setopt( $handle, CURLOPT_USERPWD, $this->password);
+            curl_setopt( $handle, CURLOPT_USERPWD, $this->options->password);
         }
         if( ! $acceptablesHttpCodes )
         {
