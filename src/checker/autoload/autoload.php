@@ -40,6 +40,7 @@ return array(
     'chkAllTests'	                        => 'tests/alltests.php',
 	'chkProcessTest'	                    => 'tests/processtest.php',
 	'chkBenchmarkDemoTest'    	        	=> 'tests/benchmarkdemotest.php',
+	'chkBenchmarkLogTest'	 	            => 'tests/benchmarklogtest.php',
 	'chkBenchmarkUriTest'	 	            => 'tests/benchmarkuritest.php',
 	'chkBenchmarkSuiteTest'  	          	=> 'tests/benchmarksuitetest.php',
 	'chkBenchmarkW3CTest'	 	            => 'tests/benchmarkw3ctest.php',
