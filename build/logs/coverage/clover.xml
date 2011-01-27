@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1296086442">
-  <project timestamp="1296086442">
+<coverage generated="1296086950">
+  <project timestamp="1296086950">
     <file name="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/classes/benchmarksuite.php">
       <class name="chkBenchmarkSuite" namespace="global" fullPackage="WebChecker" package="WebChecker">
         <metrics methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="41" coveredstatements="41" elements="48" coveredelements="48"/>
@@ -498,29 +498,29 @@
       <line num="157" type="stmt" count="4"/>
       <line num="158" type="stmt" count="1"/>
       <line num="160" type="stmt" count="3"/>
+      <line num="182" type="stmt" count="3"/>
+      <line num="184" type="stmt" count="3"/>
+      <line num="186" type="stmt" count="3"/>
+      <line num="187" type="stmt" count="3"/>
+      <line num="188" type="stmt" count="3"/>
+      <line num="189" type="stmt" count="3"/>
+      <line num="190" type="stmt" count="3"/>
+      <line num="191" type="stmt" count="3"/>
+      <line num="192" type="stmt" count="3"/>
+      <line num="193" type="stmt" count="3"/>
+      <line num="194" type="stmt" count="3"/>
       <line num="195" type="stmt" count="3"/>
+      <line num="196" type="stmt" count="3"/>
       <line num="197" type="stmt" count="3"/>
-      <line num="199" type="stmt" count="3"/>
-      <line num="200" type="stmt" count="3"/>
-      <line num="201" type="stmt" count="3"/>
-      <line num="202" type="stmt" count="3"/>
-      <line num="203" type="stmt" count="3"/>
-      <line num="204" type="stmt" count="3"/>
+      <line num="198" type="stmt" count="2"/>
+      <line num="201" type="stmt" count="1"/>
+      <line num="202" type="stmt" count="1"/>
+      <line num="203" type="stmt" count="1"/>
+      <line num="204" type="stmt" count="1"/>
       <line num="205" type="stmt" count="3"/>
       <line num="206" type="stmt" count="3"/>
-      <line num="207" type="stmt" count="3"/>
-      <line num="208" type="stmt" count="3"/>
-      <line num="209" type="stmt" count="3"/>
-      <line num="210" type="stmt" count="3"/>
-      <line num="211" type="stmt" count="2"/>
-      <line num="214" type="stmt" count="1"/>
-      <line num="215" type="stmt" count="1"/>
-      <line num="216" type="stmt" count="1"/>
-      <line num="217" type="stmt" count="1"/>
-      <line num="218" type="stmt" count="3"/>
-      <line num="219" type="stmt" count="3"/>
-      <line num="222" type="stmt" count="1"/>
-      <metrics loc="221" ncloc="108" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="74" coveredstatements="74" elements="81" coveredelements="81"/>
+      <line num="209" type="stmt" count="1"/>
+      <metrics loc="208" ncloc="121" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="74" coveredstatements="74" elements="81" coveredelements="81"/>
     </file>
     <file name="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/interfaces/ibenchmarkable.php">
       <line num="21" type="stmt" count="1"/>
@@ -2790,6 +2790,6 @@
       <line num="30" type="stmt" count="0"/>
       <metrics loc="32" ncloc="12" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
     </file>
-    <metrics files="54" loc="10364" ncloc="4088" classes="70" methods="229" coveredmethods="72" conditionals="0" coveredconditionals="0" statements="2190" coveredstatements="758" elements="2419" coveredelements="830"/>
+    <metrics files="54" loc="10351" ncloc="4101" classes="70" methods="229" coveredmethods="72" conditionals="0" coveredconditionals="0" statements="2190" coveredstatements="758" elements="2419" coveredelements="830"/>
   </project>
 </coverage>

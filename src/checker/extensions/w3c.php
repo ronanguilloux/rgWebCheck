@@ -178,19 +178,6 @@ class chkBenchmarkW3C implements iBenchmarkable
             throw new chkMissingPHPExtensionCheckException( __METHOD__.' : is php-curl installed ? :' );
         }
         // @codeCoverageIgnoreEnd
-        //        catch( chkEmptyOptionsCheckException $e ) { return false; }
-        //        catch( chkMissingOptionsCheckException $e ) { return false; }
-        //        catch( chkFilterVarException $e ) { return false; }
-        //
-        //        // @codeCoverageIgnoreStart
-        //        catch( chkW3CPearCheckException $e ) { return false; }
-        //        catch( chkMissingPHPExtensionCheckException $e ) { return false;}
-        //        catch( Exception $e)
-        //        {
-        //            chkGlobalException::log( $e  . ' : undefined exception caught in ' . __METHOD__, ezcLog::ERROR );
-        //            return false;
-        //        }
-        // @codeCoverageIgnoreEnd
 
         $success = true;
 

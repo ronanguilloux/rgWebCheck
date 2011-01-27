@@ -474,47 +474,34 @@
 <span class="lineNum" id="container178"><a name="178"></a><a href="#178" id="line178">     178</a> </span>                :             throw new chkMissingPHPExtensionCheckException( __METHOD__.' : is php-curl installed ? :' );                                                      
 <span class="lineNum" id="container179"><a name="179"></a><a href="#179" id="line179">     179</a> </span>                :         }                                                                                                                                                     
 <span class="lineNum" id="container180"><a name="180"></a><a href="#180" id="line180">     180</a> </span>                :         // @codeCoverageIgnoreEnd                                                                                                                             
-<span class="lineNum" id="container181"><a name="181"></a><a href="#181" id="line181">     181</a> </span>                :         //        catch( chkEmptyOptionsCheckException $e ) { return false; }                                                                                 
-<span class="lineNum" id="container182"><a name="182"></a><a href="#182" id="line182">     182</a> </span>                :         //        catch( chkMissingOptionsCheckException $e ) { return false; }                                                                               
-<span class="lineNum" id="container183"><a name="183"></a><a href="#183" id="line183">     183</a> </span>                :         //        catch( chkFilterVarException $e ) { return false; }                                                                                         
-<span class="lineNum" id="container184"><a name="184"></a><a href="#184" id="line184">     184</a> </span>                :         //                                                                                                                                                    
-<span class="lineNum" id="container185"><a name="185"></a><a href="#185" id="line185">     185</a> </span>                :         //        // @codeCoverageIgnoreStart                                                                                                                 
-<span class="lineNum" id="container186"><a name="186"></a><a href="#186" id="line186">     186</a> </span>                :         //        catch( chkW3CPearCheckException $e ) { return false; }                                                                                      
-<span class="lineNum" id="container187"><a name="187"></a><a href="#187" id="line187">     187</a> </span>                :         //        catch( chkMissingPHPExtensionCheckException $e ) { return false;}                                                                           
-<span class="lineNum" id="container188"><a name="188"></a><a href="#188" id="line188">     188</a> </span>                :         //        catch( Exception $e)                                                                                                                        
-<span class="lineNum" id="container189"><a name="189"></a><a href="#189" id="line189">     189</a> </span>                :         //        {                                                                                                                                           
-<span class="lineNum" id="container190"><a name="190"></a><a href="#190" id="line190">     190</a> </span>                :         //            chkGlobalException::log( $e  . ' : undefined exception caught in ' . __METHOD__, ezcLog::ERROR );                                       
-<span class="lineNum" id="container191"><a name="191"></a><a href="#191" id="line191">     191</a> </span>                :         //            return false;                                                                                                                           
-<span class="lineNum" id="container192"><a name="192"></a><a href="#192" id="line192">     192</a> </span>                :         //        }                                                                                                                                           
-<span class="lineNum" id="container193"><a name="193"></a><a href="#193" id="line193">     193</a> </span>                :         // @codeCoverageIgnoreEnd                                                                                                                             
-<span class="lineNum" id="container194"><a name="194"></a><a href="#194" id="line194">     194</a> </span>                :                                                                                                                                                               
-<span class="lineNum" id="container195"><a name="195"></a><a href="#195" id="line195">     195</a> </span><span class="lineCov">              3 :         $success = true;                                                                                                                                      </span>
-<span class="lineNum" id="container196"><a name="196"></a><a href="#196" id="line196">     196</a> </span>                :                                                                                                                                                               
-<span class="lineNum" id="container197"><a name="197"></a><a href="#197" id="line197">     197</a> </span><span class="lineCov">              3 :         foreach ($this-&gt;urls as $url) {                                                                                                                       </span>
-<span class="lineNum" id="container198"><a name="198"></a><a href="#198" id="line198">     198</a> </span>                :             if( $success )                                                                                                                                    
-<span class="lineNum" id="container199"><a name="199"></a><a href="#199" id="line199">     199</a> </span><span class="lineCov">              3 :             $ch = curl_init();                                                                                                                                </span>
-<span class="lineNum" id="container200"><a name="200"></a><a href="#200" id="line200">     200</a> </span><span class="lineCov">              3 :             curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);                                                                                                     </span>
-<span class="lineNum" id="container201"><a name="201"></a><a href="#201" id="line201">     201</a> </span><span class="lineCov">              3 :             curl_setopt( $ch, CURLOPT_URL, chkBenchmarkW3C::W3C_URL_CHECKER . $url );                                                                         </span>
-<span class="lineNum" id="container202"><a name="202"></a><a href="#202" id="line202">     202</a> </span><span class="lineCov">              3 :             $html = curl_exec( $ch );                                                                                                                         </span>
-<span class="lineNum" id="container203"><a name="203"></a><a href="#203" id="line203">     203</a> </span><span class="lineCov">              3 :             curl_close( $ch );                                                                                                                                </span>
-<span class="lineNum" id="container204"><a name="204"></a><a href="#204" id="line204">     204</a> </span><span class="lineCov">              3 :             if(strpos( $html,&quot;Passed&quot; ) === false)                                                                                                            </span>
-<span class="lineNum" id="container205"><a name="205"></a><a href="#205" id="line205">     205</a> </span><span class="lineCov">              3 :             {                                                                                                                                                 </span>
-<span class="lineNum" id="container206"><a name="206"></a><a href="#206" id="line206">     206</a> </span><span class="lineCov">              3 :                 $log = &quot;\n&quot; . chkBenchmarkW3C::W3C_URL_CHECKER. $url  . &quot; : ERRORS FOUND at the W3C validator check&quot;;                                         </span>
-<span class="lineNum" id="container207"><a name="207"></a><a href="#207" id="line207">     207</a> </span><span class="lineCov">              3 :                 chkGlobalException::log( $log );                                                                                                              </span>
-<span class="lineNum" id="container208"><a name="208"></a><a href="#208" id="line208">     208</a> </span><span class="lineCov">              3 :                 $success = false;                                                                                                                             </span>
-<span class="lineNum" id="container209"><a name="209"></a><a href="#209" id="line209">     209</a> </span><span class="lineCov">              3 :                 if( $this-&gt;stopOnError )                                                                                                                      </span>
-<span class="lineNum" id="container210"><a name="210"></a><a href="#210" id="line210">     210</a> </span><span class="lineCov">              3 :                 {                                                                                                                                             </span>
-<span class="lineNum" id="container211"><a name="211"></a><a href="#211" id="line211">     211</a> </span><span class="lineCov">              2 :                     break;                                                                                                                                    </span>
-<span class="lineNum" id="container212"><a name="212"></a><a href="#212" id="line212">     212</a> </span><span class="lineDeadCode">                :                 }                                                                                                                                             </span>
-<span class="lineNum" id="container213"><a name="213"></a><a href="#213" id="line213">     213</a> </span>                :                                                                                                                                                               
-<span class="lineNum" id="container214"><a name="214"></a><a href="#214" id="line214">     214</a> </span><span class="lineCov">              1 :             }                                                                                                                                                 </span>
-<span class="lineNum" id="container215"><a name="215"></a><a href="#215" id="line215">     215</a> </span><span class="lineCov">              1 :             $log = &quot;\n&quot; . chkBenchmarkW3C::W3C_URL_CHECKER . $url  . &quot; : OK at the W3C validator check&quot;;                                                      </span>
-<span class="lineNum" id="container216"><a name="216"></a><a href="#216" id="line216">     216</a> </span><span class="lineCov">              1 :             chkGlobalException::log( $log );                                                                                                                  </span>
-<span class="lineNum" id="container217"><a name="217"></a><a href="#217" id="line217">     217</a> </span><span class="lineCov">              1 :             $success = true;                                                                                                                                  </span>
-<span class="lineNum" id="container218"><a name="218"></a><a href="#218" id="line218">     218</a> </span><span class="lineCov">              3 :         }                                                                                                                                                     </span>
-<span class="lineNum" id="container219"><a name="219"></a><a href="#219" id="line219">     219</a> </span><span class="lineCov">              3 :         return $success;                                                                                                                                      </span>
-<span class="lineNum" id="container220"><a name="220"></a><a href="#220" id="line220">     220</a> </span><span class="lineDeadCode">                :     }                                                                                                                                                         </span>
-<span class="lineNum" id="container221"><a name="221"></a><a href="#221" id="line221">     221</a> </span>                : }                                                                                                                                                             
+<span class="lineNum" id="container181"><a name="181"></a><a href="#181" id="line181">     181</a> </span>                :                                                                                                                                                               
+<span class="lineNum" id="container182"><a name="182"></a><a href="#182" id="line182">     182</a> </span><span class="lineCov">              3 :         $success = true;                                                                                                                                      </span>
+<span class="lineNum" id="container183"><a name="183"></a><a href="#183" id="line183">     183</a> </span>                :                                                                                                                                                               
+<span class="lineNum" id="container184"><a name="184"></a><a href="#184" id="line184">     184</a> </span><span class="lineCov">              3 :         foreach ($this-&gt;urls as $url) {                                                                                                                       </span>
+<span class="lineNum" id="container185"><a name="185"></a><a href="#185" id="line185">     185</a> </span>                :             if( $success )                                                                                                                                    
+<span class="lineNum" id="container186"><a name="186"></a><a href="#186" id="line186">     186</a> </span><span class="lineCov">              3 :             $ch = curl_init();                                                                                                                                </span>
+<span class="lineNum" id="container187"><a name="187"></a><a href="#187" id="line187">     187</a> </span><span class="lineCov">              3 :             curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);                                                                                                     </span>
+<span class="lineNum" id="container188"><a name="188"></a><a href="#188" id="line188">     188</a> </span><span class="lineCov">              3 :             curl_setopt( $ch, CURLOPT_URL, chkBenchmarkW3C::W3C_URL_CHECKER . $url );                                                                         </span>
+<span class="lineNum" id="container189"><a name="189"></a><a href="#189" id="line189">     189</a> </span><span class="lineCov">              3 :             $html = curl_exec( $ch );                                                                                                                         </span>
+<span class="lineNum" id="container190"><a name="190"></a><a href="#190" id="line190">     190</a> </span><span class="lineCov">              3 :             curl_close( $ch );                                                                                                                                </span>
+<span class="lineNum" id="container191"><a name="191"></a><a href="#191" id="line191">     191</a> </span><span class="lineCov">              3 :             if(strpos( $html,&quot;Passed&quot; ) === false)                                                                                                            </span>
+<span class="lineNum" id="container192"><a name="192"></a><a href="#192" id="line192">     192</a> </span><span class="lineCov">              3 :             {                                                                                                                                                 </span>
+<span class="lineNum" id="container193"><a name="193"></a><a href="#193" id="line193">     193</a> </span><span class="lineCov">              3 :                 $log = &quot;\n&quot; . chkBenchmarkW3C::W3C_URL_CHECKER. $url  . &quot; : ERRORS FOUND at the W3C validator check&quot;;                                         </span>
+<span class="lineNum" id="container194"><a name="194"></a><a href="#194" id="line194">     194</a> </span><span class="lineCov">              3 :                 chkGlobalException::log( $log );                                                                                                              </span>
+<span class="lineNum" id="container195"><a name="195"></a><a href="#195" id="line195">     195</a> </span><span class="lineCov">              3 :                 $success = false;                                                                                                                             </span>
+<span class="lineNum" id="container196"><a name="196"></a><a href="#196" id="line196">     196</a> </span><span class="lineCov">              3 :                 if( $this-&gt;stopOnError )                                                                                                                      </span>
+<span class="lineNum" id="container197"><a name="197"></a><a href="#197" id="line197">     197</a> </span><span class="lineCov">              3 :                 {                                                                                                                                             </span>
+<span class="lineNum" id="container198"><a name="198"></a><a href="#198" id="line198">     198</a> </span><span class="lineCov">              2 :                     break;                                                                                                                                    </span>
+<span class="lineNum" id="container199"><a name="199"></a><a href="#199" id="line199">     199</a> </span><span class="lineDeadCode">                :                 }                                                                                                                                             </span>
+<span class="lineNum" id="container200"><a name="200"></a><a href="#200" id="line200">     200</a> </span>                :                                                                                                                                                               
+<span class="lineNum" id="container201"><a name="201"></a><a href="#201" id="line201">     201</a> </span><span class="lineCov">              1 :             }                                                                                                                                                 </span>
+<span class="lineNum" id="container202"><a name="202"></a><a href="#202" id="line202">     202</a> </span><span class="lineCov">              1 :             $log = &quot;\n&quot; . chkBenchmarkW3C::W3C_URL_CHECKER . $url  . &quot; : OK at the W3C validator check&quot;;                                                      </span>
+<span class="lineNum" id="container203"><a name="203"></a><a href="#203" id="line203">     203</a> </span><span class="lineCov">              1 :             chkGlobalException::log( $log );                                                                                                                  </span>
+<span class="lineNum" id="container204"><a name="204"></a><a href="#204" id="line204">     204</a> </span><span class="lineCov">              1 :             $success = true;                                                                                                                                  </span>
+<span class="lineNum" id="container205"><a name="205"></a><a href="#205" id="line205">     205</a> </span><span class="lineCov">              3 :         }                                                                                                                                                     </span>
+<span class="lineNum" id="container206"><a name="206"></a><a href="#206" id="line206">     206</a> </span><span class="lineCov">              3 :         return $success;                                                                                                                                      </span>
+<span class="lineNum" id="container207"><a name="207"></a><a href="#207" id="line207">     207</a> </span><span class="lineDeadCode">                :     }                                                                                                                                                         </span>
+<span class="lineNum" id="container208"><a name="208"></a><a href="#208" id="line208">     208</a> </span>                : }                                                                                                                                                             
 
 </pre>
         </td>
@@ -523,7 +510,7 @@
 
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr><td class="ruler"><img src="glass.png" width="3" height="3" alt=""></td></tr>
-      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.3</a> and PHPUnit 3.5.7 at Thu Jan 27 1:00:42 CET 2011.</td></tr>
+      <tr><td class="versionInfo">Generated by <a href="http://github.com/sebastianbergmann/php-code-coverage" target="_top">PHP_CodeCoverage 1.0.3</a> using <a href="http://www.php.net/" target="_top">PHP 5.3.3-1ubuntu9.3</a> and PHPUnit 3.5.7 at Thu Jan 27 1:09:10 CET 2011.</td></tr>
     </table>
 
     <br />
@@ -788,8 +775,68 @@
           "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
           "footer": ""
         },
+        "panel182": {
+          "header": "3 tests cover line 182",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel184": {
+          "header": "3 tests cover line 184",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel186": {
+          "header": "3 tests cover line 186",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel187": {
+          "header": "3 tests cover line 187",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel188": {
+          "header": "3 tests cover line 188",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel189": {
+          "header": "3 tests cover line 189",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel190": {
+          "header": "3 tests cover line 190",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel191": {
+          "header": "3 tests cover line 191",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel192": {
+          "header": "3 tests cover line 192",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel193": {
+          "header": "3 tests cover line 193",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel194": {
+          "header": "3 tests cover line 194",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
         "panel195": {
           "header": "3 tests cover line 195",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "footer": ""
+        },
+        "panel196": {
+          "header": "3 tests cover line 196",
           "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
           "footer": ""
         },
@@ -798,34 +845,29 @@
           "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
           "footer": ""
         },
-        "panel199": {
-          "header": "3 tests cover line 199",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel200": {
-          "header": "3 tests cover line 200",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+        "panel198": {
+          "header": "2 tests cover line 198",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li></ul>",
           "footer": ""
         },
         "panel201": {
-          "header": "3 tests cover line 201",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "header": "1 test covers line 201",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
           "footer": ""
         },
         "panel202": {
-          "header": "3 tests cover line 202",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "header": "1 test covers line 202",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
           "footer": ""
         },
         "panel203": {
-          "header": "3 tests cover line 203",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "header": "1 test covers line 203",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
           "footer": ""
         },
         "panel204": {
-          "header": "3 tests cover line 204",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
+          "header": "1 test covers line 204",
+          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
           "footer": ""
         },
         "panel205": {
@@ -835,61 +877,6 @@
         },
         "panel206": {
           "header": "3 tests cover line 206",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel207": {
-          "header": "3 tests cover line 207",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel208": {
-          "header": "3 tests cover line 208",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel209": {
-          "header": "3 tests cover line 209",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel210": {
-          "header": "3 tests cover line 210",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel211": {
-          "header": "2 tests cover line 211",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li></ul>",
-          "footer": ""
-        },
-        "panel214": {
-          "header": "1 test covers line 214",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel215": {
-          "header": "1 test covers line 215",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel216": {
-          "header": "1 test covers line 216",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel217": {
-          "header": "1 test covers line 217",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel218": {
-          "header": "3 tests cover line 218",
-          "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
-          "footer": ""
-        },
-        "panel219": {
-          "header": "3 tests cover line 219",
           "body": "<ul><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_2</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_3</li><li class=\"testPassed\">chkBenchmarkW3CTest::testRun_4</li></ul>",
           "footer": ""
         },
