@@ -188,7 +188,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
 
 
     /**
-     * expectedException chkEmptyOptionsCheckException is managed-inside
+     * @expectedException chkMissingOptionsCheckException
      * @group WebCheckerTests
      */
     public function testRunException_1()
@@ -199,7 +199,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * expectedException chkMissingOptionsCheckException is managed-inside
+     * @expectedException chkMissingOptionsCheckException
      * @group WebCheckerTests
      */
     public function testRunException_2()
@@ -211,7 +211,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
 
 
     /**
-     * expectedException chkMissingOptionsCheckException is managed-inside
+     * @expectedException chkMissingOptionsCheckException
      * @group WebCheckerTests
      */
     public function testRunException_3()
@@ -222,7 +222,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * expectedException chkFilterVarException is managed-inside
+     * @expectedException chkFilterVarException
      * @group WebCheckerTests
      */
     public function testRunException_4()
@@ -233,7 +233,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-    * expectedException chkFilterVarException is managed-inside
+    * @expectedException chkMissingOptionsCheckException
     * @group WebCheckerTests
     */
     public function testRunException_5()

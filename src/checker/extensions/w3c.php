@@ -123,6 +123,7 @@ class chkBenchmarkW3C implements iBenchmarkable
         {
             $this->urls = $options['urls'];
         }
+        $this->stopOnError = true;
         if( isset( $options['stopOnError'] ) )
         {
             $this->stopOnError = $options['stopOnError'];
@@ -170,57 +171,50 @@ class chkBenchmarkW3C implements iBenchmarkable
             //</PEAR's Services_W3C_HTMLValidator>
         }
         // @codeCoverageIgnoreEnd
-        
+
         // @codeCoverageIgnoreStart
         if( !function_exists( 'curl_init' ) )
         {
             throw new chkMissingPHPExtensionCheckException( __METHOD__.' : is php-curl installed ? :' );
         }
-            // @codeCoverageIgnoreEnd
-//        catch( chkEmptyOptionsCheckException $e ) { return false; }
-//        catch( chkMissingOptionsCheckException $e ) { return false; }
-//        catch( chkFilterVarException $e ) { return false; }
-//
-//        // @codeCoverageIgnoreStart
-//        catch( chkW3CPearCheckException $e ) { return false; }
-//        catch( chkMissingPHPExtensionCheckException $e ) { return false;}
-//        catch( Exception $e)
-//        {
-//            chkGlobalException::log( $e  . ' : undefined exception caught in ' . __METHOD__, ezcLog::ERROR );
-//            return false;
-//        }
         // @codeCoverageIgnoreEnd
-        
+        //        catch( chkEmptyOptionsCheckException $e ) { return false; }
+        //        catch( chkMissingOptionsCheckException $e ) { return false; }
+        //        catch( chkFilterVarException $e ) { return false; }
+        //
+        //        // @codeCoverageIgnoreStart
+        //        catch( chkW3CPearCheckException $e ) { return false; }
+        //        catch( chkMissingPHPExtensionCheckException $e ) { return false;}
+        //        catch( Exception $e)
+        //        {
+        //            chkGlobalException::log( $e  . ' : undefined exception caught in ' . __METHOD__, ezcLog::ERROR );
+        //            return false;
+        //        }
+        // @codeCoverageIgnoreEnd
+
         $success = true;
 
         foreach ($this->urls as $url) {
             if( $success )
-            try{
-                $ch = curl_init();
-                curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt( $ch, CURLOPT_URL, chkBenchmarkW3C::W3C_URL_CHECKER . $url );
-                $html = curl_exec( $ch );
-                curl_close( $ch );
-                if(strpos( $html,"Passed" ) === false)
-                {
-                    $log = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER. $url  . " : ERRORS FOUND at the W3C validator check";
-                    chkGlobalException::log( $log );
-                    $success = false;
-                    if( $this->stopOnError )
-                    {
-                        break;
-                    }
-
-                }
-                $log = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER . $url  . " : OK at the W3C validator check";
-                chkGlobalException::log( $log );
-                $success = true;
-            }
-            catch( Exception $e )
+            $ch = curl_init();
+            curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt( $ch, CURLOPT_URL, chkBenchmarkW3C::W3C_URL_CHECKER . $url );
+            $html = curl_exec( $ch );
+            curl_close( $ch );
+            if(strpos( $html,"Passed" ) === false)
             {
-                chkGlobalException::log( 'undefined exception caught in ' . __METHOD__ );
-                return false;
+                $log = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER. $url  . " : ERRORS FOUND at the W3C validator check";
+                chkGlobalException::log( $log );
+                $success = false;
+                if( $this->stopOnError )
+                {
+                    break;
+                }
+
             }
+            $log = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER . $url  . " : OK at the W3C validator check";
+            chkGlobalException::log( $log );
+            $success = true;
         }
         return $success;
     }
