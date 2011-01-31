@@ -22,16 +22,15 @@ error_reporting(E_ALL-E_NOTICE);
  */
 class chkGlobalException extends Exception
 {
-	public function __construct($message, $code = 0, Exception $previous = null) {
-		parent::__construct($message, $code, $previous);
-		echo $this->Log($this->ShortTrace());
+	public function __construct($message='undefined', $code = 0, Exception $previous = null) {
+		parent::__construct($message, $code, $previous);		
 	}
 
 	/**
 	 * 
 	 * @param string $outputFormat : (default:) cli, html (TODO : xml, json)
 	 */
-	public function longTrace($outputFormat = 'cli')
+	protected function longTrace($outputFormat = 'cli')
 	{
 		$longString = '';
 		switch ($outputFormat)
@@ -52,30 +51,39 @@ class chkGlobalException extends Exception
 		return $longString;
 	}
 
-	public function shortTrace()
+	protected function shortTrace()
 	{
-		return "Managed ". get_class($this)." raised in {$this->file} on line {$this->line} : [{$this->code}] {$this->message}";
+		return " Managed ". get_class($this)." raised in {$this->file} on line {$this->line} : [{$this->code}] {$this->message} ";
 	}
 
 	/**
 	 * 
 	 * @param string $message
 	 */
-	public static function log($message, $severity = null)
+	public function log($message, $severity = null, $verbosity='short', $format=null, $logger = null)
 	{
 	    $message = date('Y-m-d H:i:s') . ' : ' . $message;
+	    switch ($verbosity)
+		{
+		    case 'long' :
+		        $message = $message . $this->longTrace($format);
+		        break;
+		    default :
+		        $message = $message . $this->shortTrace();
+		        break;
+		}
 	    $filter = new ezcLogFilter();
 	    $filter->severity = ezcLog::INFO;
 	    if( $severity !== null )
 	    {
 	        $filter->severity = $severity;
 	    }
-        if( $log === null )
+        if( $logger === null )
         {		
-	        $log = ezcLog::getInstance();	        
+	        $logger = ezcLog::getInstance();	        
         }
-        $log->getMapper()->appendRule( new ezcLogFilterRule( $filter, new ezcLogUnixFileWriter( "/tmp/", "error.log" ), true ) );
-        $log->log( $message, $severity );
+        $logger->getMapper()->appendRule( new ezcLogFilterRule( $filter, new ezcLogUnixFileWriter( "/tmp/", "error.log" ), true ) );
+        $logger->log( $message, $severity );
 	}
 	
 }

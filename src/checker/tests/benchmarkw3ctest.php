@@ -79,7 +79,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcBaseValueException
      * @group WebCheckerTests
      */
-    public function testSetException_1()
+    public function testSetExceptionSetOptionsPropertyWithBadValue()
     {
         $this->object->options = -1;
     }
@@ -88,7 +88,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcBasePropertyNotFoundException
      * @group WebCheckerTests
      */
-    public function testSetException_2()
+    public function testSetExceptionSetNotFoundProperty()
     {
         $this->object->foo = 'bar';
     }
@@ -97,7 +97,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcBaseValueException
      * @group WebCheckerTests
      */
-    public function testSetException_3()
+    public function testSetExceptionSetUrlsPropertyWithBadValue()
     {
         $this->object->urls = 'foo:bar';
     }
@@ -106,7 +106,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcBaseValueException
      * @group WebCheckerTests
      */
-    public function testSetException_4()
+    public function testSetExceptionSetStopOnErrorPropertyWithBadValue()
     {
         $this->object->stopOnError = 'foo:bar';
     }
@@ -124,7 +124,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     /**
      * @group WebCheckerTests
      */
-    public function testSetUp_1()
+    public function testSetUpUrlsProperty()
     {
         $options = array( 'urls' => array( 'http://foo.bar' ) );
         $this->object->setUp( $options );
@@ -134,7 +134,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     /**
      * @group WebCheckerTests
      */
-    public function testSetUp_2()
+    public function testSetUpStopOnErrorProperty()
     {
         $options = array( 'stopOnError' => true );
         $this->object->setUp( $options );
@@ -144,18 +144,18 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     /**
      * @group WebCheckerTests
      */
-    public function testRun_1()
+    public function testRunReturningTrue()
     {
-//        $options = array( 'urls' => array( 'http://www.csszengarden.com' ) );
-//        $this->object->setUp( $options );
-//        $result = $this->object->run();
-//        $this->assertTrue( $result );
+        $options = array( 'urls' => array( 'http://www.csszengarden.com' ) );
+        $this->object->setUp( $options );
+        $result = $this->object->run();
+        $this->assertTrue( $result );
     }
 
     /**
      * @group WebCheckerTests
      */
-    public function testRun_2()
+    public function testRunReturningFalse()
     {
         $options = array( 'urls'=> array( 'http://www.google.com' ) );
         $this->object->setUp( $options );
@@ -165,7 +165,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     /**
      * @group WebCheckerTests
      */
-    public function testRun_3()
+    public function testRunWithStopOnErrorReturningFalse()
     {
         $options = array(
         	'urls'=> array( 'http://www.google.com' ), 
@@ -177,7 +177,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     /**
      * @group WebCheckerTests
      */
-    public function testRun_4()
+    public function testRunWithNOStopOnErrorReturningTrue()
     {
         $options = array(
         	'urls'=> array( 'http://www.google.com' ), 
@@ -191,7 +191,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
      * @expectedException chkMissingOptionsCheckException
      * @group WebCheckerTests
      */
-    public function testRunException_1()
+    public function testRunExceptionWithEmptyOptions()
     {
         $options = array();
         $this->object->setUp( $options );
@@ -202,7 +202,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
      * @expectedException chkMissingOptionsCheckException
      * @group WebCheckerTests
      */
-    public function testRunException_2()
+    public function testRunExceptionWithBadOptions()
     {
         $options = array( 'foo' => array() );
         $this->object->setUp( $options );
@@ -214,7 +214,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
      * @expectedException chkMissingOptionsCheckException
      * @group WebCheckerTests
      */
-    public function testRunException_3()
+    public function testRunExceptionWithEmptyUrls()
     {
         $options = array( 'urls' => array() );
         $this->object->setUp( $options );
@@ -225,7 +225,7 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
      * @expectedException chkFilterVarException
      * @group WebCheckerTests
      */
-    public function testRunException_4()
+    public function testRunExceptionWithBadUrls()
     {
         $options = array( 'urls' => array( 'foo.bar') );
         $this->object->setUp( $options );
@@ -236,13 +236,12 @@ class chkBenchmarkW3CTest extends PHPUnit_Framework_TestCase
     * @expectedException chkMissingOptionsCheckException
     * @group WebCheckerTests
     */
-    public function testRunException_5()
+    public function testRunExceptionStopOnErrorWithMissingUrls()
     {
         $options = array( 'stopOnError' => false );
         $this->object->setUp( $options );
         $this->assertFalse( $this->object->run() );
     }
-
 
 }
 ?>

@@ -40,7 +40,9 @@ return array(
     'chkAllTests'	                        => 'tests/alltests.php',
 	'chkProcessTest'	                    => 'tests/processtest.php',
 	'chkBenchmarkDemoTest'    	        	=> 'tests/benchmarkdemotest.php',
+	'chkBenchmarkLogTest'	 	            => 'tests/benchmarklogtest.php',
 	'chkBenchmarkUriTest'	 	            => 'tests/benchmarkuritest.php',
+    'chkBenchmarkContentTest'	 	        => 'tests/benchmarkcontenttest.php',
 	'chkBenchmarkSuiteTest'  	          	=> 'tests/benchmarksuitetest.php',
 	'chkBenchmarkW3CTest'	 	            => 'tests/benchmarkw3ctest.php',
     'iProcessable'                          => 'interfaces/iprocessable.php',    
@@ -49,9 +51,11 @@ return array(
 	'iStructurable'	                        => 'interfaces/istructurable.php',
 	'chkProcess'                            => 'classes/process.php',
 	'chkBenchmarkSuite'                     => 'classes/benchmarksuite.php',
-	'chkStructUriOptions'                   => 'classes/structurioptions.php',
+	'chkStructUriOptions'                   => 'extensions/structurioptions.php',
+    'chkStructContentOptions'               => 'extensions/structcontentoptions.php',
 	'chkBenchmarkDemo'                      => 'extensions/demo.php',
     'chkBenchmarkUri'                       => 'extensions/uri.php',
+	'chkBenchmarkContent'                   => 'extensions/content.php',
 	'chkBenchmarkW3C'                       => 'extensions/w3c.php',
 
 );

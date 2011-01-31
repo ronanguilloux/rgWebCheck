@@ -190,8 +190,9 @@ class chkBenchmarkW3C implements iBenchmarkable
             curl_close( $ch );
             if(strpos( $html,"Passed" ) === false)
             {
-                $log = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER. $url  . " : ERRORS FOUND at the W3C validator check";
-                chkGlobalException::log( $log );
+                $message = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER. $url  . " : ERRORS FOUND at the W3C validator check";
+                $exception = new chkGlobalException();
+                $exception->log( $message );
                 $success = false;
                 if( $this->stopOnError )
                 {
@@ -199,8 +200,9 @@ class chkBenchmarkW3C implements iBenchmarkable
                 }
 
             }
-            $log = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER . $url  . " : OK at the W3C validator check";
-            chkGlobalException::log( $log );
+            $message = "\n" . chkBenchmarkW3C::W3C_URL_CHECKER . $url  . " : OK at the W3C validator check";
+            $exception = new chkGlobalException();
+            $exception->log( $message );
             $success = true;
         }
         return $success;

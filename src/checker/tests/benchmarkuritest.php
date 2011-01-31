@@ -46,8 +46,8 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      */
     public function testGet()
     {
-        $this->object->options = new chkStructUriOptions();
-        $foo = $this->object->options;
+        $this->object->uriOptions = new chkStructUriOptions();
+        $foo = $this->object->uriOptions;
     }
 
     /**
@@ -65,7 +65,7 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      */
     public function testSetExceptionOnExistingOptionsPropertyWithWrongValue()
     {
-        $this->object->options = -1;
+        $this->object->uriOptions = -1;
     }
 
     /**
@@ -83,7 +83,7 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     //     */
     //    public function testSetException_4()
     //    {
-    //        $this->object->options->password = new ArrayObject( array() );
+    //        $this->object->uriOptions->password = new ArrayObject( array() );
     //    }
 
     /**
@@ -100,8 +100,8 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      */
     public function testIsset()
     {
-        $this->object->options = new chkStructUriOptions();
-        $this->assertTrue( isset( $this->object->options ) );
+        $this->object->uriOptions = new chkStructUriOptions();
+        $this->assertTrue( isset( $this->object->uriOptions ) );
     }
 
     /**
@@ -115,17 +115,15 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     /**
      * @group WebCheckerTests
      */
-    public function testRun_1()
+    public function testSimpleRun()
     {
-        $options = $this->fillOptions( 1 );
-        $this->object->setUp( $options );
-        $result = $this->object->run();
-        $this->assertTrue( $result['result'] );
+        $uriOptions = $this->fillOptions( 'simpleRun' );
+        $this->object->setUp( $uriOptions );
+        $result = $this->object->run();       
 
         // tracing :
 
         //        var_export( "\n" . $result['headerSent'] );
-        //        var_export( "\n" . $result['lastUrl'] );
         //        var_export( "\n" . $result['lastUrl'] );
         //        var_export( "\n" . $result['code'] );
         //        var_export( "\n" . $result['contentType'] );
@@ -147,30 +145,18 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
         //        // Output
         //        var_export( $tidy );
 
-        if( isset( $options->expectedStrings ) )
-        {
-            foreach( $options->expectedStrings as $expected )
-            {
-                $this->assertNotEquals(false, strpos($result['content'], str_replace('  ', '', trim($expected) ) ) );
-            }
-        }
-        if( isset( $options->notExpectedStrings ) )
-        {
-            foreach( $options->notExpectedStrings as $notExpected )
-            {
-                $this->assertFalse(strpos($result['content'], str_replace('  ', '', trim($notExpected) ) ) );
-            }
-        }
+        $this->assertTrue( $result['result'] );
+        
     }
 
     /**
      * @expectedException ezcUrlException
      * @group WebCheckerTests
      */
-    public function testRunException_2()
+    public function testRunExceptionNoUrl()
     {
-        $options = $this->fillOptions( 2 );
-        $this->object->setUp( $options );
+        $uriOptions = $this->fillOptions( 'noUrl' );
+        $this->object->setUp( $uriOptions );
         $result = $this->object->run();
     }
 
@@ -178,10 +164,10 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcUrlException
      * @group WebCheckerTests
      */
-    public function testRunException_3()
+    public function testRunExceptionBadUrl()
     {
-        $options = $this->fillOptions( 3 );
-        $this->object->setUp( $options );
+        $uriOptions = $this->fillOptions( 'badUrl' );
+        $this->object->setUp( $uriOptions );
         $result = $this->object->run();
     }
 
@@ -189,11 +175,11 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcUrlException
      * @group WebCheckerTests
      */
-    public function testRun_4()
+    public function testRunNoLogin()
     {
         $result = $this->object->run();
-        $options = $this->fillOptions( 4 );
-        $this->object->setUp( $options );
+        $uriOptions = $this->fillOptions( 'noLogin' );
+        $this->object->setUp( $uriOptions );
         $result = $this->object->run();
     }
 
@@ -201,54 +187,27 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
      * @expectedException ezcUrlException
      * @group WebCheckerTests
      */
-    public function testRun_5()
+    public function testRunBadLogin()
     {
-        $options = $this->fillOptions( 5 );
-        $this->object->setUp( $options );
+        $uriOptions = $this->fillOptions( 'badLogin' );
+        $this->object->setUp( $uriOptions );
         $result = $this->object->run();
     }
 
     /**
      * @group WebCheckerTests
      */
-    public function testRunException_6()
+    public function testRunGoodLogin()
     {
-        $options = $this->fillOptions( 6 );
-        $this->object->setUp( $options );
+        $uriOptions = $this->fillOptions( 'goodLogin' );
+        $this->object->setUp( $uriOptions );
         try
         {
             $result = $this->object->run();
         }
         catch (Exception $e)
         {
-            $this->markTestSkipped('This test was skipped,  the test url is probably no more available');
-        }
-    }
-
-    /**
-     * @group WebCheckerTests
-     */
-    public function testRunException_7()
-    {
-        $options = $this->fillOptions( 7 );
-        $this->object->setUp( $options );
-        $result = $this->object->run();
-    }
-
-    /**
-     * @group WebCheckerTests
-     */
-    public function testRunException_8()
-    {
-        $options = $this->fillOptions( 8 );
-        $this->object->setUp( $options );
-        $result = $this->object->run();
-        if( isset( $options->notExpectedStrings ) )
-        {
-            foreach( $options->notExpectedStrings as $notExpected )
-            {
-                $this->assertFalse(strpos($result['content'], str_replace('  ', '', trim($notExpected) ) ) );
-            }
+            $this->markTestSkipped('This test was skipped, the test url is probably no more available');
         }
     }
 
@@ -261,106 +220,77 @@ class chkBenchmarkUriTest extends PHPUnit_Framework_TestCase
     {
         switch ( $index )
         {
-            case 1 :
+            case 'simpleRun' :
                 return new chkStructUriOptions(
-        	'http',
-        	'incubator.apache.org',        	
-                array(),
-                array('zetacomponents','documentation', 'overview.html'),
-                null,
-            '',
-                true,
-                null,
-                array( 'Apache Zeta Components' ),
-                array( 'This must not be' )
+            		'http',
+            		'incubator.apache.org',        	
+                    array(),
+                    array('zetacomponents','documentation', 'overview.html'),
+                    null,
+                   	'',
+                    true,
+                    null,
+                    array( 'Apache Zeta Components' )
                 );
                 break;
-            case 2 :
+            case 'noUrl' :
                 return new chkStructUriOptions(
-                null,
-        	    null,   	
-                array(),
-                array(),
-                null,
-        	'',
-                true
+                    null,
+            	    null,   	
+                    array(),
+                    array(),
+                    null,
+            		'',
+                    true
                 );
                 break;
-            case 3 :
+            case 'badUrl' :
                 return new chkStructUriOptions(
-                null,
-        	'foo:bar',        	
-                array(),
-                array(),
-                null,
-        	'',
-                true
+                    null,
+            		'foo:bar',        	
+                    array(),
+                    array(),
+                    null,
+            		'',
+                    true
                 );
                 break;
-            case 4 :
+            case 'noLogin' :
                 return new chkStructUriOptions(
-        	'http',
-        	'92.243.31.245',        	
-                array(),
-                array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                null,
-        	'',
-                true,
-                null,
-                array( "Didn't got it !" )
+            		'http',
+            		'92.243.31.245',        	
+                    array(),
+                    array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                    null,
+            		'',
+                    true,
+                    null
                 );
                 break;
-            case 5 :
+            case 'badLogin' :
                 return new chkStructUriOptions(
-        	'http',
-        	'92.243.31.245',        	
-                array(),
-                array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                null,
-        	'',
-                true,
-            'null:null',
-                array( 'Error' )
-                );
+            		'http',
+            		'92.243.31.245',        	
+                    array(),
+                    array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                    null,
+            		'',
+                    true,
+                	'null:null'
+            	);
                 break;
-            case 6:
+            case 'goodLogin' :
                 return new chkStructUriOptions(
-        	'http',
-        	'92.243.31.245',        	
-                array(),
-                array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                null,
-        	'',
-                true,
-            'login:password'
-            );
+            		'http',
+            		'92.243.31.245',        	
+                    array(),
+                    array( 'phpUnitStubs', 'hidden', 'index.html' ),
+                    null,
+            		'',
+                    true,
+                	'login:password'
+                );
             break;
-            case 7 :
-                return new chkStructUriOptions(
-        			'http',
-        			'92.243.31.245',        	
-                array(),
-                array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                null,
-        			'',
-                true,
-            		'login:password',
-                array( 'Got it !' )
-                );
-                break;
-            case 8 :
-                return new chkStructUriOptions(
-        	'http',
-        	'92.243.31.245',        	
-                array(),
-                array( 'phpUnitStubs', 'hidden', 'index.html' ),
-                null,
-        	'',
-                true,
-            'login:password',
-                array( "Didn't got it !" )
-                );
-                break;
         }
         return array();
     }
