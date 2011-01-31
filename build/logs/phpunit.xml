@@ -1,84 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHPUnit Framework" tests="66" assertions="52" failures="0" errors="0" time="9.804311">
-    <testsuite name="PHPUnit Framework" tests="66" assertions="52" failures="0" errors="0" time="9.804311">
-      <testsuite name="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="10" assertions="9" failures="0" errors="0" time="0.123572">
-        <testcase name="testSetters" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="49" assertions="2" time="0.036245"/>
-        <testcase name="testGet" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="61" assertions="0" time="0.007340"/>
-        <testcase name="testGetException" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="71" assertions="1" time="0.010010"/>
-        <testcase name="testSetException_1" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="80" assertions="1" time="0.008069"/>
-        <testcase name="testSetException_2" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="89" assertions="1" time="0.009160"/>
-        <testcase name="testSetException_3" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="98" assertions="1" time="0.007863"/>
-        <testcase name="testIsset" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="106" assertions="1" time="0.008050"/>
-        <testcase name="testToString" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="115" assertions="0" time="0.007292"/>
-        <testcase name="testRunFree" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="123" assertions="1" time="0.018153"/>
-        <testcase name="testRunWithOptions" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="134" assertions="1" time="0.011390"/>
+  <testsuite name="PHPUnit Framework" tests="70" assertions="56" failures="0" errors="0" time="7.270326">
+    <testsuite name="PHPUnit Framework" tests="70" assertions="56" failures="0" errors="0" time="7.270326">
+      <testsuite name="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="10" assertions="9" failures="0" errors="0" time="0.122724">
+        <testcase name="testSetters" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="49" assertions="2" time="0.035632"/>
+        <testcase name="testGet" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="61" assertions="0" time="0.007453"/>
+        <testcase name="testGetException" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="71" assertions="1" time="0.009816"/>
+        <testcase name="testSetException_1" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="80" assertions="1" time="0.008139"/>
+        <testcase name="testSetException_2" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="89" assertions="1" time="0.008973"/>
+        <testcase name="testSetException_3" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="98" assertions="1" time="0.007535"/>
+        <testcase name="testIsset" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="106" assertions="1" time="0.008602"/>
+        <testcase name="testToString" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="115" assertions="0" time="0.007025"/>
+        <testcase name="testRunFree" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="123" assertions="1" time="0.018004"/>
+        <testcase name="testRunWithOptions" class="chkProcessTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/processtest.php" line="134" assertions="1" time="0.011546"/>
       </testsuite>
-      <testsuite name="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="12" assertions="7" failures="0" errors="0" time="0.104099">
-        <testcase name="testSet" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="49" assertions="0" time="0.007935"/>
-        <testcase name="testGet" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="57" assertions="0" time="0.007724"/>
-        <testcase name="testGetException" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="67" assertions="1" time="0.008260"/>
-        <testcase name="testSetExceptionOnExistingPropertyWithWrongValue" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="76" assertions="1" time="0.008114"/>
-        <testcase name="testSetExceptionOnNonExistingProperty" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="85" assertions="1" time="0.007791"/>
-        <testcase name="testIsset" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="93" assertions="1" time="0.008751"/>
-        <testcase name="testToString" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="102" assertions="0" time="0.007628"/>
-        <testcase name="testAddException" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="111" assertions="1" time="0.007978"/>
-        <testcase name="testAdd_NoKey" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="120" assertions="1" time="0.009489"/>
-        <testcase name="testAdd_Key" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="130" assertions="1" time="0.010009"/>
-        <testcase name="testRunFree" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="143" assertions="0" time="0.010769"/>
-        <testcase name="testRunWithOptions" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="152" assertions="0" time="0.009651"/>
+      <testsuite name="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="12" assertions="7" failures="0" errors="0" time="0.101740">
+        <testcase name="testSet" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="49" assertions="0" time="0.008681"/>
+        <testcase name="testGet" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="57" assertions="0" time="0.007387"/>
+        <testcase name="testGetException" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="67" assertions="1" time="0.007854"/>
+        <testcase name="testSetExceptionOnExistingPropertyWithWrongValue" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="76" assertions="1" time="0.007821"/>
+        <testcase name="testSetExceptionOnNonExistingProperty" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="85" assertions="1" time="0.007746"/>
+        <testcase name="testIsset" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="93" assertions="1" time="0.008327"/>
+        <testcase name="testToString" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="102" assertions="0" time="0.007479"/>
+        <testcase name="testAddException" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="111" assertions="1" time="0.008086"/>
+        <testcase name="testAdd_NoKey" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="120" assertions="1" time="0.009240"/>
+        <testcase name="testAdd_Key" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="130" assertions="1" time="0.009534"/>
+        <testcase name="testRunFree" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="143" assertions="0" time="0.009979"/>
+        <testcase name="testRunWithOptions" class="chkBenchmarkSuiteTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarksuitetest.php" line="152" assertions="0" time="0.009606"/>
       </testsuite>
-      <testsuite name="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="8" assertions="5" failures="0" errors="0" time="0.063946">
-        <testcase name="testSet" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="46" assertions="0" time="0.007659"/>
-        <testcase name="testGet" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="54" assertions="0" time="0.007664"/>
-        <testcase name="testGetException" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="64" assertions="1" time="0.007898"/>
-        <testcase name="testSetException_1" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="73" assertions="1" time="0.008340"/>
-        <testcase name="testSetException_2" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="82" assertions="1" time="0.007882"/>
-        <testcase name="testIsset" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="90" assertions="1" time="0.008179"/>
-        <testcase name="testToString" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="99" assertions="0" time="0.007979"/>
-        <testcase name="testRun" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="107" assertions="1" time="0.008346"/>
+      <testsuite name="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="8" assertions="5" failures="0" errors="0" time="0.062343">
+        <testcase name="testSet" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="46" assertions="0" time="0.007140"/>
+        <testcase name="testGet" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="54" assertions="0" time="0.007838"/>
+        <testcase name="testGetException" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="64" assertions="1" time="0.007636"/>
+        <testcase name="testSetException_1" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="73" assertions="1" time="0.007814"/>
+        <testcase name="testSetException_2" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="82" assertions="1" time="0.007825"/>
+        <testcase name="testIsset" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="90" assertions="1" time="0.007974"/>
+        <testcase name="testToString" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="99" assertions="0" time="0.007587"/>
+        <testcase name="testRun" class="chkBenchmarkDemoTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkdemotest.php" line="107" assertions="1" time="0.008529"/>
       </testsuite>
-      <testsuite name="chkBenchmarkLogTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarklogtest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="1" assertions="1" failures="0" errors="0" time="0.036050">
-        <testcase name="testThrowingLongException" class="chkBenchmarkLogTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarklogtest.php" line="47" assertions="1" time="0.036050"/>
+      <testsuite name="chkBenchmarkLogTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarklogtest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="1" assertions="1" failures="0" errors="0" time="0.035387">
+        <testcase name="testThrowingLongException" class="chkBenchmarkLogTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarklogtest.php" line="47" assertions="1" time="0.035387"/>
       </testsuite>
-      <testsuite name="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="15" assertions="12" failures="0" errors="0" time="2.804335">
-        <testcase name="testGet" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="47" assertions="0" time="0.008182"/>
-        <testcase name="testGetExceptionOnNonExistingProperty" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="57" assertions="1" time="0.008255"/>
-        <testcase name="testSetExceptionOnExistingOptionsPropertyWithWrongValue" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="66" assertions="1" time="0.009003"/>
-        <testcase name="testSetExceptionOnExistingezcUrlPropertyWithWrongValue" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="75" assertions="1" time="0.017993"/>
-        <testcase name="testSetExceptionOnNonExistingProperty" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="93" assertions="1" time="0.008671"/>
-        <testcase name="testIsset" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="101" assertions="1" time="0.008966"/>
-        <testcase name="testToString" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="110" assertions="0" time="0.008078"/>
-        <testcase name="testRun_1" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="118" assertions="3" time="1.449870"/>
-        <testcase name="testRunException_2" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="170" assertions="1" time="0.014087"/>
-        <testcase name="testRunException_3" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="181" assertions="1" time="0.266900"/>
-        <testcase name="testRun_4" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="192" assertions="1" time="0.207572"/>
-        <testcase name="testRun_5" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="204" assertions="1" time="0.199972"/>
-        <testcase name="testRunException_6" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="214" assertions="0" time="0.199852"/>
-        <testcase name="testRunException_7" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="231" assertions="0" time="0.197393"/>
-        <testcase name="testRunException_8" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="241" assertions="0" time="0.199541"/>
+      <testsuite name="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="13" assertions="10" failures="0" errors="0" time="1.140563">
+        <testcase name="testGet" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="47" assertions="0" time="0.008679"/>
+        <testcase name="testGetExceptionOnNonExistingProperty" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="57" assertions="1" time="0.008138"/>
+        <testcase name="testSetExceptionOnExistingOptionsPropertyWithWrongValue" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="66" assertions="1" time="0.008225"/>
+        <testcase name="testSetExceptionOnExistingezcUrlPropertyWithWrongValue" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="75" assertions="1" time="0.017707"/>
+        <testcase name="testSetExceptionOnNonExistingProperty" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="93" assertions="1" time="0.008611"/>
+        <testcase name="testIsset" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="101" assertions="1" time="0.008462"/>
+        <testcase name="testToString" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="110" assertions="0" time="0.007719"/>
+        <testcase name="testSimpleRun" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="118" assertions="1" time="0.745417"/>
+        <testcase name="testRunExceptionNoUrl" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="156" assertions="1" time="0.015456"/>
+        <testcase name="testRunExceptionBadUrl" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="167" assertions="1" time="0.076956"/>
+        <testcase name="testRunNoLogin" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="178" assertions="1" time="0.077491"/>
+        <testcase name="testRunBadLogin" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="190" assertions="1" time="0.077594"/>
+        <testcase name="testRunGoodLogin" class="chkBenchmarkUriTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkuritest.php" line="200" assertions="0" time="0.080109"/>
       </testsuite>
-      <testsuite name="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="20" assertions="18" failures="0" errors="0" time="6.672308">
-        <testcase name="testSet" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="46" assertions="0" time="0.011256"/>
-        <testcase name="testGet" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="55" assertions="0" time="0.007818"/>
-        <testcase name="testToString" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="64" assertions="1" time="0.010045"/>
-        <testcase name="testGetException" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="73" assertions="1" time="0.008374"/>
-        <testcase name="testSetExceptionSetOptionsPropertyWithBadValue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="82" assertions="1" time="0.008430"/>
-        <testcase name="testSetExceptionSetNotFoundProperty" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="91" assertions="1" time="0.008359"/>
-        <testcase name="testSetExceptionSetUrlsPropertyWithBadValue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="100" assertions="1" time="0.008461"/>
-        <testcase name="testSetExceptionSetStopOnErrorPropertyWithBadValue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="109" assertions="1" time="0.009173"/>
-        <testcase name="testIsset" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="117" assertions="1" time="0.008753"/>
-        <testcase name="testSetUpUrlsProperty" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="127" assertions="1" time="0.009290"/>
-        <testcase name="testSetUpStopOnErrorProperty" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="137" assertions="1" time="0.009395"/>
-        <testcase name="testRunReturningTrue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="147" assertions="1" time="1.915608"/>
-        <testcase name="testRunReturningFalse" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="158" assertions="1" time="1.548624"/>
-        <testcase name="testRunWithStopOnErrorReturningFalse" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="168" assertions="1" time="1.527763"/>
-        <testcase name="testRunWithNOStopOnErrorReturningTrue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="180" assertions="1" time="1.535774"/>
-        <testcase name="testRunExceptionWithEmptyOptions" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="194" assertions="1" time="0.008574"/>
-        <testcase name="testRunExceptionWithBadOptions" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="205" assertions="1" time="0.008716"/>
-        <testcase name="testRunExceptionWithEmptyUrls" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="217" assertions="1" time="0.010093"/>
-        <testcase name="testRunExceptionWithBadUrls" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="228" assertions="1" time="0.009126"/>
-        <testcase name="testRunExceptionStopOnErrorWithMissingUrls" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="239" assertions="1" time="0.008676"/>
+      <testsuite name="chkBenchmarkContentTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkcontenttest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="6" assertions="6" failures="0" errors="0" time="0.964613">
+        <testcase name="testSetExceptionOnExistingOptionsPropertyWithWrongValue" class="chkBenchmarkContentTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkcontenttest.php" line="48" assertions="1" time="0.011099"/>
+        <testcase name="testSimpleRun" class="chkBenchmarkContentTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkcontenttest.php" line="56" assertions="1" time="0.627483"/>
+        <testcase name="testRunRightLoginGoodContent" class="chkBenchmarkContentTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkcontenttest.php" line="93" assertions="1" time="0.077357"/>
+        <testcase name="testRunRightLoginBadContent" class="chkBenchmarkContentTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkcontenttest.php" line="105" assertions="1" time="0.085639"/>
+        <testcase name="testNotExpectedValue" class="chkBenchmarkContentTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkcontenttest.php" line="117" assertions="1" time="0.080841"/>
+        <testcase name="testNotExpectedButFound" class="chkBenchmarkContentTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkcontenttest.php" line="129" assertions="1" time="0.082194"/>
+      </testsuite>
+      <testsuite name="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" fullPackage="WebCheckerTests" package="WebCheckerTests" tests="20" assertions="18" failures="0" errors="0" time="4.842956">
+        <testcase name="testSet" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="46" assertions="0" time="0.009890"/>
+        <testcase name="testGet" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="55" assertions="0" time="0.007959"/>
+        <testcase name="testToString" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="64" assertions="1" time="0.009868"/>
+        <testcase name="testGetException" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="73" assertions="1" time="0.008072"/>
+        <testcase name="testSetExceptionSetOptionsPropertyWithBadValue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="82" assertions="1" time="0.008824"/>
+        <testcase name="testSetExceptionSetNotFoundProperty" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="91" assertions="1" time="0.007982"/>
+        <testcase name="testSetExceptionSetUrlsPropertyWithBadValue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="100" assertions="1" time="0.008202"/>
+        <testcase name="testSetExceptionSetStopOnErrorPropertyWithBadValue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="109" assertions="1" time="0.008939"/>
+        <testcase name="testIsset" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="117" assertions="1" time="0.008628"/>
+        <testcase name="testSetUpUrlsProperty" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="127" assertions="1" time="0.009363"/>
+        <testcase name="testSetUpStopOnErrorProperty" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="137" assertions="1" time="0.011414"/>
+        <testcase name="testRunReturningTrue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="147" assertions="1" time="1.285095"/>
+        <testcase name="testRunReturningFalse" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="158" assertions="1" time="1.167222"/>
+        <testcase name="testRunWithStopOnErrorReturningFalse" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="168" assertions="1" time="1.097516"/>
+        <testcase name="testRunWithNOStopOnErrorReturningTrue" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="180" assertions="1" time="1.150513"/>
+        <testcase name="testRunExceptionWithEmptyOptions" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="194" assertions="1" time="0.008392"/>
+        <testcase name="testRunExceptionWithBadOptions" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="205" assertions="1" time="0.008532"/>
+        <testcase name="testRunExceptionWithEmptyUrls" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="217" assertions="1" time="0.009071"/>
+        <testcase name="testRunExceptionWithBadUrls" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="228" assertions="1" time="0.008869"/>
+        <testcase name="testRunExceptionStopOnErrorWithMissingUrls" class="chkBenchmarkW3CTest" file="/home/ronan/workspace/GITHUB/rgWebChecker/src/checker/tests/benchmarkw3ctest.php" line="239" assertions="1" time="0.008605"/>
       </testsuite>
     </testsuite>
   </testsuite>

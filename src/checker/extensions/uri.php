@@ -32,7 +32,7 @@ class chkBenchmarkUri implements iBenchmarkable
      */
     public function __construct( )
     {
-        $this->options = new chkStructUriOptions();
+        $this->uriOptions = new chkStructUriOptions();
     }
 
     /**
@@ -53,6 +53,9 @@ class chkBenchmarkUri implements iBenchmarkable
      
     /**
      * Sets the $propertyName to $propertyValue.
+     * 
+     * 'uriOptions' is reserved for the chkStructUriOptions struct
+     * 'options' can be used by any inheritating class for its iStructurable struct
      *
      * @throws ezcBaseValueException if the property does not exist.
      * @param string $propertyName
@@ -63,10 +66,17 @@ class chkBenchmarkUri implements iBenchmarkable
     {
         switch ( $propertyName )
         {
-            case 'options':
+            case 'uriOptions':
                 if ( !( $propertyValue instanceof chkStructUriOptions ) )
                 {
                     throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a chkStructUriOptions instance, __set() impossible in ' . __CLASS__  );
+                }
+                $this->properties['uriOptions'] = $propertyValue;
+                break;
+            case 'options':
+                if( !is_object( $propertyValue ) || !(in_array( 'iStructurable', class_implements( $propertyValue ) )   ) )
+                {
+                    throw new ezcBaseValueException($propertyName, $propertyValue, $propertyName . ' is not a iStructurable instance, __set() impossible in ' . __CLASS__  );
                 }
                 $this->properties['options'] = $propertyValue;
                 break;
@@ -113,7 +123,7 @@ class chkBenchmarkUri implements iBenchmarkable
     public function setUp( $uriOptions = null )
     {
         $urlBuilder = new ezcUrl();
-        if( isset( $uriOptions ) ) $this->options = $uriOptions;
+        if( isset( $uriOptions ) ) $this->uriOptions = $uriOptions;
         //mandatory:
         if( isset( $uriOptions ) )
         {
@@ -150,7 +160,7 @@ class chkBenchmarkUri implements iBenchmarkable
         {
             return array( 'result' => false );
         }
-        if( isset( $this->options->validateUrl )  && $this->options->validateUrl )
+        if( isset( $this->uriOptions->validateUrl )  && $this->uriOptions->validateUrl )
         {
             // TODO : url checking to be improved and documented
             // see http://us4.php.net/manual/en/function.get-headers.php
@@ -196,7 +206,7 @@ class chkBenchmarkUri implements iBenchmarkable
     }
 
     /**
-     * Check if a remote file exists
+     * Check if a remote resource exists
      *
      * @see http://www.php.net/manual/en/function.file-exists.php#85246
      * @param string $url
@@ -230,9 +240,9 @@ class chkBenchmarkUri implements iBenchmarkable
         curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
         curl_setopt( $handle, CURLOPT_FILE, $fp);
 
-        if( isset( $this->options->password ) && trim( $this->options->password !== '') )
+        if( isset( $this->uriOptions->password ) && trim( $this->uriOptions->password !== '') )
         {
-            curl_setopt( $handle, CURLOPT_USERPWD, $this->options->password);
+            curl_setopt( $handle, CURLOPT_USERPWD, $this->uriOptions->password);
         }
         if( ! $acceptablesHttpCodes )
         {
