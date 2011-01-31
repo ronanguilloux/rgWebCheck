@@ -45,6 +45,8 @@ Happy forking/hacking/pulling
 
 PS : GIT Memo
 -------------
+checkout -b myNewFeature
+(devel...)
 git add --all
 git commit -a -m 'Sensible changelog message'
 git push origin master
